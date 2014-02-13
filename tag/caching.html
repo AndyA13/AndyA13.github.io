@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Blog - caching</title>
+        <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css" />
+        <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://localhost:8000/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="http://localhost:8000/category/geek.html">Geek</a></li>
+                    <li><a href="http://localhost:8000/category/goa-mcpd-course.html">Goa MCPD Course</a></li>
+                    <li><a href="http://localhost:8000/category/my-blog.html">My Blog</a></li>
+                    <li><a href="http://localhost:8000/category/net.html">.net</a></li>
+                    <li><a href="http://localhost:8000/category/random.html">Random</a></li>
+                    <li><a href="http://localhost:8000/category/umbraco.html">Umbraco</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://localhost:8000/caching-file-contents-with-cachedependency.html">Caching file contents with CacheDependency</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2011-04-18T21:02:20">
+                Mon 18 April 2011
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="http://localhost:8000/author/andrew-aitken.html">Andrew Aitken</a>
+        </address>
+<p>In <a href="http://localhost:8000/category/net.html">.net</a>. </p>
+<p>tags: <a href="http://localhost:8000/tag/caching.html">caching</a><a href="http://localhost:8000/tag/net.html">.net</a></p>
+</footer><!-- /.post-info --><p>The CacheDependency will monitor a file or folder for changes. When it detects a change it will remove the associated key from the cache.</p>
+<p>This comes in quite handy for my hangman game which stores the film titles in an xml file.</p>
+<p>Below is how I cache the data and setup the CacheDependency. Some validation has been removed to keep it clear.</p>
+<div class="highlight"><pre><span class="n">private</span> <span class="n">HangmanGameCollection</span> <span class="nf">ReadGameFile</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">HttpRuntime</span><span class="p">.</span><span class="n">Cache</span><span class="p">[</span><span class="s">&quot;HangmanGame&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">HangmanGameCollection</span><span class="p">)</span><span class="n">HttpRuntime</span><span class="p">.</span><span class="n">Cache</span><span class="p">[</span><span class="s">&quot;HangmanGame&quot;</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">HangmanGameCollection</span> <span class="n">hangmanGames</span><span class="p">;</span>
+
+    <span class="n">FileInfo</span> <span class="n">xmlFile</span> <span class="o">=</span> <span class="n">new</span> <span class="n">FileInfo</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="s">&quot;~/TopSecret.xml&quot;</span><span class="p">));</span>
+
+    <span class="n">XmlSerializer</span> <span class="n">xmlSerializer</span> <span class="o">=</span> <span class="n">new</span> <span class="n">XmlSerializer</span><span class="p">(</span><span class="n">typeof</span><span class="p">(</span><span class="n">HangmanGameCollection</span><span class="p">));</span>
+
+    <span class="n">using</span> <span class="p">(</span><span class="n">FileStream</span> <span class="n">fileStream</span> <span class="o">=</span> <span class="n">xmlFile</span><span class="p">.</span><span class="n">OpenRead</span><span class="p">())</span>
+    <span class="p">{</span>
+        <span class="n">hangmanGames</span> <span class="o">=</span> <span class="p">(</span><span class="n">HangmanGameCollection</span><span class="p">)</span><span class="n">xmlSerializer</span><span class="p">.</span><span class="n">Deserialize</span><span class="p">(</span><span class="n">fileStream</span><span class="p">);</span>
+
+        <span class="c1">// Put it in cache with a dependency on the xml file</span>
+        <span class="n">HttpRuntime</span><span class="p">.</span><span class="n">Cache</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="s">&quot;HangmanGame&quot;</span><span class="p">,</span> <span class="n">hangmanGames</span><span class="p">,</span> <span class="n">new</span> <span class="n">CacheDependency</span><span class="p">(</span><span class="n">xmlFile</span><span class="p">.</span><span class="n">FullName</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">hangmanGames</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Should maybe do something about fitting in long lines of code :\</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                            <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

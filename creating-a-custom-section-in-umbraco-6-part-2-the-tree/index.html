@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Your site description." />
+    
+    <title>Creating a Custom Section in Umbraco 6 - Part 2: The Tree</title>
+
+    <!--<link rel="stylesheet" href="http://www.andrewaitken.com/theme/css/main.css" />-->
+    <link href="/theme/css/responsive.min.css" rel="stylesheet" />
+    <link href="/theme/css/site.css" rel="stylesheet" />
+    <link href="/theme/css/pygment.css" rel="stylesheet" />
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Andrew Aitken RSS Feed" />
+    
+    <!--[if lt IE 9 &!(IEMobile)]>
+        <script src="/theme/scripts/vendor/html5shiv.min.js"></script>
+        <script src="/theme/scripts/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="container">
+
+                <header>
+                    <h1><a href="http://www.andrewaitken.com">Andrew Aitken</a></h1>
+
+                        <h2>Blog</h2>
+
+                    <nav>
+                        <ul>
+                        </ul>
+                    </nav>
+                </header>
+            <div class="row">
+      
+      <div class="col-s-2">
+      </div>
+      <div class="col-s-8">
+
+  <article>
+
+      <div class="row">
+
+          <div class="col-s-12">
+                <h1><a href="http://www.andrewaitken.com/creating-a-custom-section-in-umbraco-6-part-2-the-tree/" title="Permalink to Creating a Custom Section in Umbraco 6 - Part 2: The Tree">Creating a Custom Section in Umbraco 6 - Part 2: The Tree</a></h1>
+
+<small>
+    <span class="fa fa-calendar"></span>
+    <span class="meta">Wed 17 July 2013</span>
+
+    <span class="fa fa-archive"></span>
+    <span class="meta"><a href="/category/umbraco/">Umbraco</a></span>
+    
+    	<span class="fa fa-tags"></span>
+    	<span class="meta">
+				<a href="http://www.andrewaitken.com/tag/umbraco/">umbraco</a>
+		</span>
+    
+</small>            </div>
+
+        </div>
+        
+        <div class="row">
+
+            <div class="col-s-12 post">
+
+              <p>The tree needs a little bit more work to implement than the application.</p>
+<p>Here is the initial class declaration.</p>
+<div class="highlight"><pre><span class="k">[Tree(&quot;appAlias&quot;, &quot;treeAlias&quot;, &quot;Tree Title&quot;)]</span>
+<span class="err">public</span> <span class="err">class</span> <span class="err">MyApplicationTree</span> <span class="err">:</span> <span class="err">ITree</span>
+<span class="err">{</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h3>Tree Attribute</h3>
+<p>The Tree attribute takes similar parameters to the Application attribute.</p>
+<dl>
+<dt>appAlias</dt>
+<dd>The alias of the application this tree belongs too.</dd>
+<dt>alias</dt>
+<dd>The alias for this tree.</dd>
+<dt>title</dt>
+<dd>The title of the tree, not entirely sure if this is used.</dd>
+</dl>
+
+<h3>ITree</h3>
+<p>This has a few properties and methods we need to implement.</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="n">interface</span> <span class="n">ITree</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">app</span> <span class="p">{</span> <span class="n">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="n">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">Render</span><span class="p">(</span><span class="n">ref</span> <span class="n">XmlDocument</span> <span class="n">Tree</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">RenderJS</span><span class="p">(</span><span class="n">ref</span> <span class="n">StringBuilder</span> <span class="n">Javascript</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The first two are easily implemented with an automatic properties.</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="n">string</span> <span class="n">app</span> <span class="p">{</span> <span class="n">get</span><span class="p">;</span> <span class="n">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="n">public</span> <span class="kt">int</span> <span class="n">id</span> <span class="p">{</span> <span class="n">get</span><span class="p">;</span> <span class="n">set</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>We use the RenderJS method to add javascript to the backoffice that will allow us to change the content on the right hand side frame. We will call this when we click on a node in the tree.</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="kt">void</span> <span class="nf">RenderJS</span><span class="p">(</span><span class="n">ref</span> <span class="n">StringBuilder</span> <span class="n">javascript</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">javascript</span><span class="p">.</span><span class="n">Append</span><span class="p">(</span><span class="s">@&quot;function openLocation(url) { parent.right.document.location.href = url; }&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Lastly we need to build our actual tree in the Render method. We need to build it in an XmlDocument and it's fairly straightforward once you've done it a few times.</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="kt">void</span> <span class="nf">Render</span><span class="p">(</span><span class="n">ref</span> <span class="n">XmlDocument</span> <span class="n">tree</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Add our base elements</span>
+    <span class="n">XmlNode</span> <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">DocumentElement</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">id</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get data from somewhere or create a static tree root</span>
+        <span class="c1">// Add 10 nodes for an example</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">XmlElement</span> <span class="n">treeElement</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">CreateElement</span><span class="p">(</span><span class="s">&quot;tree&quot;</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;menu&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeID&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;action&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;javascript:openLocation(&#39;/Path/To/Document.aspx?id={0}&#39;);&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;icon&quot;</span><span class="p">,</span> <span class="s">&quot;myClosedIcon.png&quot;</span><span class="p">);</span> <span class="c1">// Icons go in ~/Umbraco/Images/Umbraco/</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;openIcon&quot;</span><span class="p">,</span> <span class="s">&quot;myOpenIcon.png&quot;</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeType&quot;</span><span class="p">,</span> <span class="s">&quot;tree&quot;</span><span class="p">);</span>
+
+            <span class="n">root</span><span class="p">.</span><span class="n">AppendChild</span><span class="p">(</span><span class="n">treeElement</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">// We&#39;ll come to this later.</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This should create 10 nodes in your tree, you will probably want to switch this to get data from a database or something similar. Or you may have a few static root nodes that then load data when expanded.
+Child Nodes</p>
+<p>To load child nodes in a tree, you call the tree again with the id of the parent node. This is where that if (this.id == -1) comes in. You set the tree to call in the src attribute of the node.</p>
+<div class="highlight"><pre><span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">,</span> <span class="n">this</span><span class="p">.</span><span class="n">GetServiceUrl</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+
+<span class="c1">// ... snip ...</span>
+
+<span class="n">private</span> <span class="n">string</span> <span class="nf">GetServiceUrl</span><span class="p">(</span><span class="kt">int</span> <span class="n">nodeId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">TreeService</span> <span class="n">treeService</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TreeService</span><span class="p">(</span><span class="n">nodeId</span><span class="p">,</span> <span class="s">&quot;treeAlias&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="n">TreeDialogModes</span><span class="p">.</span><span class="n">fulllink</span><span class="p">,</span> <span class="n">this</span><span class="p">.</span><span class="n">app</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">treeService</span><span class="p">.</span><span class="n">GetServiceUrl</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>We then catch this like so:</p>
+<div class="highlight"><pre><span class="n">public</span> <span class="kt">void</span> <span class="nf">Render</span><span class="p">(</span><span class="n">ref</span> <span class="n">XmlDocument</span> <span class="n">tree</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Add our base elements</span>
+    <span class="n">XmlNode</span> <span class="n">root</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">DocumentElement</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">id</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Get data from somewhere or create a static tree root</span>
+        <span class="c1">// Add 10 nodes for an example</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span> <span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">XmlElement</span> <span class="n">treeElement</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">CreateElement</span><span class="p">(</span><span class="s">&quot;tree&quot;</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;menu&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeID&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;action&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;javascript:openLocation(&#39;/Path/To/Document.aspx?id={0}&#39;);&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">));</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;icon&quot;</span><span class="p">,</span> <span class="s">&quot;myClosedIcon.png&quot;</span><span class="p">);</span> <span class="c1">// Icons go in ~/Umbraco/Images/Umbraco/</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;openIcon&quot;</span><span class="p">,</span> <span class="s">&quot;myOpenIcon.png&quot;</span><span class="p">);</span>
+            <span class="n">treeElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeType&quot;</span><span class="p">,</span> <span class="s">&quot;tree&quot;</span><span class="p">);</span>
+
+            <span class="n">root</span><span class="p">.</span><span class="n">AppendChild</span><span class="p">(</span><span class="n">treeElement</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">// Get items that have a parent node of this.id</span>
+        <span class="c1">// Just as an example</span>
+        <span class="n">XmlElement</span> <span class="n">childElement</span> <span class="o">=</span> <span class="n">tree</span><span class="p">.</span><span class="n">CreateElement</span><span class="p">(</span><span class="s">&quot;tree&quot;</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;menu&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeID&quot;</span><span class="p">,</span> <span class="mi">99</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;text&quot;</span><span class="p">,</span> <span class="s">&quot;Child of &quot;</span> <span class="o">+</span> <span class="n">this</span><span class="p">.</span><span class="n">id</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;action&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;javascript:openLocation(&#39;/Path/To/AnotherDocument.aspx?id={0}&#39;);&quot;</span><span class="p">,</span> <span class="n">this</span><span class="p">.</span><span class="n">id</span><span class="p">));</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;src&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;icon&quot;</span><span class="p">,</span> <span class="s">&quot;icon.png&quot;</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;openIcon&quot;</span><span class="p">,</span> <span class="s">&quot;icon.png&quot;</span><span class="p">);</span>
+        <span class="n">childElement</span><span class="p">.</span><span class="n">SetAttribute</span><span class="p">(</span><span class="s">&quot;nodeType&quot;</span><span class="p">,</span> <span class="s">&quot;tree&quot;</span><span class="p">);</span>
+
+        <span class="n">root</span><span class="p">.</span><span class="n">AppendChild</span><span class="p">(</span><span class="n">childElement</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>Need More Node Ids?</h3>
+<p>The basic tree works really well if you have a unique Id for every item and hierarchy is defined within that by parent Ids, like the content in Umbraco content. But if you need multiple roots nodes, each showing items that may have conflicting Ids, then you can add another tree.</p>
+<p>By default all trees for an application will be added to the root, this might be what you want, but if it's not, there is an overload for the Tree attribute to stop it being loaded.</p>
+<div class="highlight"><pre><span class="p">[</span><span class="n">Tree</span><span class="p">(</span><span class="s">&quot;appAlias&quot;</span><span class="p">,</span> <span class="s">&quot;treeAlias&quot;</span><span class="p">,</span> <span class="s">&quot;My Child Tree&quot;</span><span class="p">,</span> <span class="s">&quot;.sprTreeFolder&quot;</span><span class="p">,</span> <span class="s">&quot;.sprTreeFolder_o&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">false</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>It's the last boolean parameter which tells Umbraco not to initialize the tree, so it won't be added to the root. You can then change your src attributes on your nodes to point to the new tree.</p>
+<div class="highlight"><pre><span class="n">private</span> <span class="n">string</span> <span class="nf">GetTreeServiceUrl</span><span class="p">(</span><span class="n">string</span> <span class="n">treeAlias</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nodeId</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">TreeService</span> <span class="n">treeService</span> <span class="o">=</span> <span class="n">new</span> <span class="n">TreeService</span><span class="p">(</span><span class="n">nodeId</span><span class="p">,</span> <span class="n">treeAlias</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="nb">false</span><span class="p">,</span> <span class="n">TreeDialogModes</span><span class="p">.</span><span class="n">fulllink</span><span class="p">,</span> <span class="n">this</span><span class="p">.</span><span class="n">app</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">treeService</span><span class="p">.</span><span class="n">GetServiceUrl</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>Context Menus</h3>
+<p>You can control the context menu available on a node by setting the menu attribute on the node. This isn't something I have implemented yet, there is more information for this available here.</p>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    </div>
+    <div class="col-s-2">
+    </div>
+
+</div>
+
+</div>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-s-8">
+                        
+                        <h4>blogroll</h4>
+                    
+                        <ul class="blogroll no-bullets">
+                                <li><a href="http://cameronfletcher.com/">Cameron Fletcher</a></li>
+                                <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                                <li><a href="https://twitter.com/sgxbsxn">Steven Gibson</a></li>
+                        </ul>
+
+                </div>
+
+                <div class="col-s-4">
+
+                        <h4>social</h4>
+                    
+                        <ul class="social no-bullets">
+                                <li><a href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                                <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                                <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-s-12 footer-meta">
+                    <p>
+                        Powered by <a href="http://getpelican.com" target="_blank">pelican</a> and <a href="http://responsivebp.com/" target="_blank">responsive</a> |
+                        <a href="https://github.com/AndyA13/pelican-theme">Coffee &amp; Code</a> |
+                        &copy; Andrew Aitken 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts at the bottom for improved performance. -->
+    <!--[if IE 8]>     
+    <script src="/theme/scripts/vendor/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <script src="/theme/scripts/vendor/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="/theme/scripts/responsive.min.js"></script>
+
+</body>
+</html>

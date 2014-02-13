@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Your site description." />
+    
+    <title>Creating a Custom Section in Umbraco 6 - Part 1: The Application</title>
+
+    <!--<link rel="stylesheet" href="http://www.andrewaitken.com/theme/css/main.css" />-->
+    <link href="/theme/css/responsive.min.css" rel="stylesheet" />
+    <link href="/theme/css/site.css" rel="stylesheet" />
+    <link href="/theme/css/pygment.css" rel="stylesheet" />
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Andrew Aitken RSS Feed" />
+    
+    <!--[if lt IE 9 &!(IEMobile)]>
+        <script src="/theme/scripts/vendor/html5shiv.min.js"></script>
+        <script src="/theme/scripts/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="container">
+
+                <header>
+                    <h1><a href="http://www.andrewaitken.com">Andrew Aitken</a></h1>
+
+                        <h2>Blog</h2>
+
+                    <nav>
+                        <ul>
+                        </ul>
+                    </nav>
+                </header>
+            <div class="row">
+      
+      <div class="col-s-2">
+      </div>
+      <div class="col-s-8">
+
+  <article>
+
+      <div class="row">
+
+          <div class="col-s-12">
+                <h1><a href="http://www.andrewaitken.com/creating-a-custom-section-in-umbraco-6-part-1-the-application/" title="Permalink to Creating a Custom Section in Umbraco 6 - Part 1: The Application">Creating a Custom Section in Umbraco 6 - Part 1: The Application</a></h1>
+
+<small>
+    <span class="fa fa-calendar"></span>
+    <span class="meta">Tue 16 July 2013</span>
+
+    <span class="fa fa-archive"></span>
+    <span class="meta"><a href="/category/umbraco/">Umbraco</a></span>
+    
+    	<span class="fa fa-tags"></span>
+    	<span class="meta">
+				<a href="http://www.andrewaitken.com/tag/umbraco/">umbraco</a>
+		</span>
+    
+</small>            </div>
+
+        </div>
+        
+        <div class="row">
+
+            <div class="col-s-12 post">
+
+              <p>I’ve been doing a bit of work lately creating a custom section in an Umbraco v6.1 install. I needed a nice tree for my custom section, so after a lot of googling and digging through the Umbraco source, I managed to get it all working nicely.  I’ve put this guide together to hopefully make the process a little easier for myself and any other weary internet travellers who happen to stumble upon it.</p>
+<h3>The Application</h3>
+<p>This is much easier now in version 6, to add a new application you just new to create a class that implements umbraco.interfaces.IApplication and has the Application attribute.</p>
+<div class="highlight"><pre><span class="k">[Application(&quot;alias&quot;, &quot;Real Name&quot;, &quot;images/nada.gif&quot;, 10)]</span>
+<span class="err">public</span> <span class="err">class</span> <span class="err">MyApplication</span> <span class="err">:</span> <span class="err">IApplication</span>
+<span class="err">{</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h3>IApplication</h3>
+<p>This interface actually has no definitions, so it’s a piece of cake to implement :)</p>
+<h3>Application Attribute</h3>
+<p>This takes a few parameters:</p>
+<dl>
+<dt>alias</dt>
+<dd>Your application alias, usually starts lowercase eg “myApplication”</dd>
+<dt>name</dt>
+<dd>The nice name for your application, e.g. “My Application”</dd>
+<dt>icon</dt>
+<dd>The icon to be displayed in umbraco, you’ll need to do a bit of css jiggery pokery to get it right. I’ve used nada then added my icon to the existing tray sprite and added a css class to position it.</dd>
+<dt>sortOrder</dt>
+<dd>You can put it at the start or in between existing apps, I set mine to 10 to make sure it was at the end.</dd>
+</dl>
+
+<h3>applications.config</h3>
+<p>That should be your app set up, when you first run umbraco after creating that class, it should update the ~/config/applications.config automatically for you. I’ve found changing anything defined in the Application attribute after this point won’t be reflected in the applications.config, so if you need to make any changes, remember check that the applications.config reflects the new values.
+Application Name</p>
+<p>At the top of the tree on your application page, you will see that it is showing your application alias instead of the name, to update this you need to add a key setting to ~/umbraco/Config/Lang/en.xml (swapping “en” for whatever language you are using).</p>
+<div class="highlight"><pre><span class="nt">&lt;area</span> <span class="na">alias=</span><span class="s">&quot;sections&quot;</span><span class="nt">&gt;</span>
+    ...
+    <span class="c">&lt;!-- Add this line --&gt;</span>
+    <span class="nt">&lt;key</span> <span class="na">alias=</span><span class="s">&quot;myApplication&quot;</span><span class="nt">&gt;</span>My Application<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;/area&gt;</span>
+</pre></div>
+
+
+<p>Your app should now have a nice name.</p>
+<p>I will post a guide to the trees later this week.</p>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    </div>
+    <div class="col-s-2">
+    </div>
+
+</div>
+
+</div>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-s-8">
+                        
+                        <h4>blogroll</h4>
+                    
+                        <ul class="blogroll no-bullets">
+                                <li><a href="http://cameronfletcher.com/">Cameron Fletcher</a></li>
+                                <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                                <li><a href="https://twitter.com/sgxbsxn">Steven Gibson</a></li>
+                        </ul>
+
+                </div>
+
+                <div class="col-s-4">
+
+                        <h4>social</h4>
+                    
+                        <ul class="social no-bullets">
+                                <li><a href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                                <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                                <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-s-12 footer-meta">
+                    <p>
+                        Powered by <a href="http://getpelican.com" target="_blank">pelican</a> and <a href="http://responsivebp.com/" target="_blank">responsive</a> |
+                        <a href="https://github.com/AndyA13/pelican-theme">Coffee &amp; Code</a> |
+                        &copy; Andrew Aitken 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts at the bottom for improved performance. -->
+    <!--[if IE 8]>     
+    <script src="/theme/scripts/vendor/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <script src="/theme/scripts/vendor/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="/theme/scripts/responsive.min.js"></script>
+
+</body>
+</html>

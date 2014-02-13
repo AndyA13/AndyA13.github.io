@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Creating a Custom Section in Umbraco 6 - Part 1: The Application</title>
+        <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css" />
+        <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://localhost:8000/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="http://localhost:8000/category/geek.html">Geek</a></li>
+                    <li><a href="http://localhost:8000/category/goa-mcpd-course.html">Goa MCPD Course</a></li>
+                    <li><a href="http://localhost:8000/category/my-blog.html">My Blog</a></li>
+                    <li><a href="http://localhost:8000/category/net.html">.net</a></li>
+                    <li><a href="http://localhost:8000/category/random.html">Random</a></li>
+                    <li class="active"><a href="http://localhost:8000/category/umbraco.html">Umbraco</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://localhost:8000/creating-a-custom-section-in-umbraco-6-part-1-the-application.html" rel="bookmark"
+           title="Permalink to Creating a Custom Section in Umbraco 6 - Part 1: The Application">Creating a Custom Section in Umbraco 6 - Part 1: The Application</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-07-16T13:28:42">
+                Tue 16 July 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="http://localhost:8000/author/andrew-aitken.html">Andrew Aitken</a>
+        </address>
+<p>In <a href="http://localhost:8000/category/umbraco.html">Umbraco</a>. </p>
+<p>tags: <a href="http://localhost:8000/tag/umbraco.html">umbraco</a></p>
+</footer><!-- /.post-info -->      <p>I’ve been doing a bit of work lately creating a custom section in an Umbraco v6.1 install. I needed a nice tree for my custom section, so after a lot of googling and digging through the Umbraco source, I managed to get it all working nicely.  I’ve put this guide together to hopefully make the process a little easier for myself and any other weary internet travellers who happen to stumble upon it.</p>
+<h3>The Application</h3>
+<p>This is much easier now in version 6, to add a new application you just new to create a class that implements umbraco.interfaces.IApplication and has the Application attribute.</p>
+<div class="highlight"><pre><span class="k">[Application(&quot;alias&quot;, &quot;Real Name&quot;, &quot;images/nada.gif&quot;, 10)]</span>
+<span class="err">public</span> <span class="err">class</span> <span class="err">MyApplication</span> <span class="err">:</span> <span class="err">IApplication</span>
+<span class="err">{</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<h3>IApplication</h3>
+<p>This interface actually has no definitions, so it’s a piece of cake to implement :)</p>
+<h3>Application Attribute</h3>
+<p>This takes a few parameters:</p>
+<dl>
+<dt>alias</dt>
+<dd>Your application alias, usually starts lowercase eg “myApplication”</dd>
+<dt>name</dt>
+<dd>The nice name for your application, e.g. “My Application”</dd>
+<dt>icon</dt>
+<dd>The icon to be displayed in umbraco, you’ll need to do a bit of css jiggery pokery to get it right. I’ve used nada then added my icon to the existing tray sprite and added a css class to position it.</dd>
+<dt>sortOrder</dt>
+<dd>You can put it at the start or in between existing apps, I set mine to 10 to make sure it was at the end.</dd>
+</dl>
+
+<h3>applications.config</h3>
+<p>That should be your app set up, when you first run umbraco after creating that class, it should update the ~/config/applications.config automatically for you. I’ve found changing anything defined in the Application attribute after this point won’t be reflected in the applications.config, so if you need to make any changes, remember check that the applications.config reflects the new values.
+Application Name</p>
+<p>At the top of the tree on your application page, you will see that it is showing your application alias instead of the name, to update this you need to add a key setting to ~/umbraco/Config/Lang/en.xml (swapping “en” for whatever language you are using).</p>
+<div class="highlight"><pre><span class="nt">&lt;area</span> <span class="na">alias=</span><span class="s">&quot;sections&quot;</span><span class="nt">&gt;</span>
+    ...
+    <span class="c">&lt;!-- Add this line --&gt;</span>
+    <span class="nt">&lt;key</span> <span class="na">alias=</span><span class="s">&quot;myApplication&quot;</span><span class="nt">&gt;</span>My Application<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;/area&gt;</span>
+</pre></div>
+
+
+<p>Your app should now have a nice name.</p>
+<p>I will post a guide to the trees later this week.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                            <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

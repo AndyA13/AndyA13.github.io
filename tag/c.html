@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Blog - c#</title>
+        <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css" />
+        <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://localhost:8000/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="http://localhost:8000/category/geek.html">Geek</a></li>
+                    <li><a href="http://localhost:8000/category/goa-mcpd-course.html">Goa MCPD Course</a></li>
+                    <li><a href="http://localhost:8000/category/my-blog.html">My Blog</a></li>
+                    <li><a href="http://localhost:8000/category/net.html">.net</a></li>
+                    <li><a href="http://localhost:8000/category/random.html">Random</a></li>
+                    <li><a href="http://localhost:8000/category/umbraco.html">Umbraco</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://localhost:8000/instant-insanity-solver.html">Instant insanity solver</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2013-01-29T21:12:05">
+                Tue 29 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="http://localhost:8000/author/andrew-aitken.html">Andrew Aitken</a>
+        </address>
+<p>In <a href="http://localhost:8000/category/geek.html">Geek</a>. </p>
+<p>tags: <a href="http://localhost:8000/tag/c.html">c#</a><a href="http://localhost:8000/tag/net.html">.net</a></p>
+</footer><!-- /.post-info --><p>I was visiting my sister for Christmas and they had a puzzle for us to play with. It's called the Instant Insanity puzzle, or at least it was a variation of it with old comic book covers instead of plain colours like the one on <a href="http://en.wikipedia.org/wiki/Instant_Insanity">Wikipedia</a>.</p>
+<p>Pretty much everyone had a shot but nobody could quite get all 4 cubes to have different sides. Like a true geek I decided to write some code to solve it for me.</p>
+<p>I put a little sticker with an arrow on each cube so I could identify them and what direction was "north". This allowed me to map the cubes in code and also reverse the map when the code found a solution.</p>
+<p>You can find the code here: <a href="https://github.com/AndyA13/InstantInsanitySolver">GitHub</a></p>
+<p>As it says in the Readme, it definitely needs refactored but it got the job done. It ran pretty much instantly and found 4 solutions (you can turn the stack 90 degrees and still have the same solution). It also finds 65,532 non solutions but I have to assume there are four of each one, making there 16,383 invalid solutions. A lot less than claimed on the box...</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://localhost:8000/comma-seperated-lists.html" rel="bookmark"
+                           title="Permalink to Comma seperated lists">Comma seperated lists</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2013-01-18T14:36:00">
+                Fri 18 January 2013
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="http://localhost:8000/author/andrew-aitken.html">Andrew Aitken</a>
+        </address>
+<p>In <a href="http://localhost:8000/category/net.html">.net</a>. </p>
+<p>tags: <a href="http://localhost:8000/tag/c.html">c#</a></p>
+</footer><!-- /.post-info -->                <p>While working on a site recently I had to output the name property from a list of objects that had been selected by the user.</p>
+<p>I wrote a handy little method that let me pass in the objects and a Func to select the property to be used in the ...</p>
+                <a class="readmore" href="http://localhost:8000/comma-seperated-lists.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                            <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

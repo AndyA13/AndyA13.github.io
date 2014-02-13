@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Model.Parent == null</title>
+        <link rel="stylesheet" href="http://localhost:8000/theme/css/main.css" />
+        <link href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Blog Atom Feed" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://localhost:8000/">Blog </a></h1>
+                <nav><ul>
+                    <li><a href="http://localhost:8000/category/geek.html">Geek</a></li>
+                    <li><a href="http://localhost:8000/category/goa-mcpd-course.html">Goa MCPD Course</a></li>
+                    <li><a href="http://localhost:8000/category/my-blog.html">My Blog</a></li>
+                    <li><a href="http://localhost:8000/category/net.html">.net</a></li>
+                    <li><a href="http://localhost:8000/category/random.html">Random</a></li>
+                    <li class="active"><a href="http://localhost:8000/category/umbraco.html">Umbraco</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://localhost:8000/model.parent-null.html" rel="bookmark"
+           title="Permalink to Model.Parent == null">Model.Parent == null</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-08-29T21:52:48">
+                Wed 29 August 2012
+        </abbr>
+
+        <address class="vcard author">
+                By <a class="url fn" href="http://localhost:8000/author/andrew-aitken.html">Andrew Aitken</a>
+        </address>
+<p>In <a href="http://localhost:8000/category/umbraco.html">Umbraco</a>. </p>
+<p>tags: <a href="http://localhost:8000/tag/umbraco.html">umbraco</a></p>
+</footer><!-- /.post-info -->      <p>Thought I would put up a quick post on an issue that I came across when converting my blog to Umbraco.</p>
+<p>I have a macro that lists posts, it will show the normal page as well as the filtered pages for categories and tags.  While trying to get my tag filter to work I hit a strange issue.</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">Model</span><span class="p">.</span><span class="n">Parent</span> <span class="o">!=</span> <span class="n">null</span> <span class="o">&amp;&amp;</span> <span class="n">Model</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">Id</span> <span class="o">==</span> <span class="mi">1234</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In the above if statement, Model.Parent was always null.</p>
+<p>Parent should only be null if you are on the homepage, so I checked Model.Level and sure enough it was 1.</p>
+<p>It took a bit of head scratching and some fruitless googling before I realized it was because the node I was loading was called "Blog", as was the root element of my site. Doh!</p>
+<p>Quick rename of the tag (and the category as it would have suffered the same problem) and all was good in the world of Umbraco again.</p>
+<p>I'm still not 100% sure on the rules of nodes with the same name. They seem to be fine if they are not direct descendants of one another.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="http://localhost:8000/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                            <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
