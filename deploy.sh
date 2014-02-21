@@ -1,10 +1,8 @@
-# Update gh-pages branch
-
 # compile first
 ./compile.sh
 
-# import github pages
-ghp-import output
+# export github pages to master branch
+ghp-import -b master output
 
-# push to repo
-git push git@github.com:AndyA13/AndyA13.github.io.git gh-pages:master
+# push all branches to github
+git push --all origin
