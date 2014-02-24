@@ -12,7 +12,7 @@ It was almost 20 years later when a friend at work brought in his DSLR. That spa
 <figure>
 ![My Pentax MX][2]
 <figcaption>TODO: Enter the Pentax MX</figcaption>
-<figure>
+</figure>
 
 The Pentax MX is a completely manual camera, no Auto mode here. There is a built in light meter to help get your exposure right, but it's up to you to change the shutter speed and aperture (ISO isn't a variable once you've put the film in the camera). 
 
