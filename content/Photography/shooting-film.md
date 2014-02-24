@@ -9,17 +9,13 @@ I've found quite a lot of programmers who have taken a keen interest in photogra
 
 It was almost 20 years later when a friend at work brought in his DSLR. That sparked the interest again and I finally got my own DSLR, a Canon 500D.  I played around with it for a while before deciding I really needed to understand all the settings to get the most from it.  I'm not sure how these are connected, but I eventually decided to get a film SLR and take a course on developing film at a local gallery called [Street Level Photo works][1].
 
-<figure>
 ![My Pentax MX][2]
-<figcaption>TODO: Enter the Pentax MX</figcaption>
-</figure>
+TODO: Enter the Pentax MX
 
 The Pentax MX is a completely manual camera, no Auto mode here. There is a built in light meter to help get your exposure right, but it's up to you to change the shutter speed and aperture (ISO isn't a variable once you've put the film in the camera). 
 
-<figure>
 ![Drinking][3]
-<figcaption>Drinking - Pentax MX - Ilford HP5 Plus 400</figcaption>
-</figure>
+Drinking - Pentax MX - Ilford HP5 Plus 400
 
 The first thing I noticed was the 50mm lens was much wider than the 50mm on my DSLR. The Canon 500D has a crop sensor which means you lose about 60% of the frame. This makes it feel zoomed in compared to a full frame or film camera. I loved being able to get more in the frame at a natural focal length, it also meant I had to get much closer if I wanted to fill the frame.
 
