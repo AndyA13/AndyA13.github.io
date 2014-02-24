@@ -3,7 +3,7 @@ Date: 2014-02-24 14:20:00
 Slug: shooting-film
 Category: Photography
 Tags: film, 35mm
-Status: Draft
+Status: draft
 
 I've found quite a lot of programmers who have taken a keen interest in photography. Me included. I've been interested in photography ever since I found my Dad's old Praktica SLR. I was quite young at the time, I could see moving the dials caused the shutter to stay open for longer but I didn't understand how that affected the exposure.
 
