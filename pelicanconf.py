@@ -6,7 +6,7 @@ AUTHOR = u'Andrew Aitken'
 SITENAME = u'Andrew Aitken'
 SITESUBTITLE = u'Blog'
 SITEURL = 'http://www.andrewaitken.com'
-THEME = 'themes/coffee-code/coffee-code'
+THEME = 'themes/coffee-code'
 
 STATIC_PATHS = ['images', 'static', ]
 EXTRA_PATH_METADATA = {
