@@ -2,7 +2,6 @@
 
 # Pelican output
 output/
-themes/
 
 *.pid
 
