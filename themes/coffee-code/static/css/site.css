@@ -1,0 +1,150 @@
+body {
+	color: #222;
+    font-size: 18px;
+    font-family: arial;
+    line-height: 1.8em;
+}
+
+header {
+	background-image: url(../images/coffee-ring.png);
+	background-repeat: no-repeat;
+	background-position: top right;
+	min-height: 200px;
+	padding-top: 3em;
+}
+
+header h1 a, header h1 a:active, header h1 a:hover, header h1 a:visited {
+	text-decoration: none;
+}
+
+nav ul {
+	padding-left: 0;
+}
+
+nav ul li {
+	padding-right: 1em;
+}
+
+nav ul, nav ul li {
+	display: inline;
+}
+
+a, a:active, a:visited  {
+	color: #900;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #900;
+	text-decoration: underline;
+}
+
+h1 a, h1 a:active, h1 a:visited, h1 a:hover,
+h2 a, h2 a:active, h2 a:visited, h2 a:hover {
+	color: #222;
+}
+
+/* Posts and archive */
+
+article {
+	margin-bottom: 2em;
+}
+
+article.archive h2 {
+	margin-bottom: 0.5em;
+}
+
+span.meta {
+	padding: 0 1em 0 0.5em;
+}
+
+/* Footer */
+
+footer {
+	background-color: #222;
+	color: #bbb;
+	padding-bottom: 2em;
+}
+
+footer h4 {
+	color: #fff;
+}
+
+footer a, footer a:visited, footer a:active, footer a:hover {
+	color: #bbb;
+	text-decoration: none;
+	border-bottom: dotted 1px #bbb;
+}
+
+ul.blogroll li {
+	float: left;
+	width: 12em;
+	margin-right: 2em;
+}
+
+.footer-meta {
+	font-size: 0.9em;
+	margin-top: 3em;
+	text-align: center;
+}
+
+.social a {
+	background-repeat: no-repeat;
+	padding-left: 1.5em;
+	background-position: left center;
+}
+
+.social a[type$='atom+xml'], .social a[type$='rss+xml'] {
+	background-image: url(../images/rss.png);
+}
+
+.social a[href*='twitter.com'] {
+	background-image: url(../images/twitter.png);
+}
+
+.social a[href*='github.com'] {
+	background-image: url(../images/github-alt.png);
+}
+
+/* General styles */
+
+pre {
+	color: #222;
+	font-family: courier;
+	font-size: 0.9em;
+	overflow: auto;
+	line-height: 1.4em;
+	white-space: pre;
+}
+
+p.paginator {
+	text-align: center;
+}
+
+p img {
+	display: block;
+	margin: auto;
+}
+
+/* Text helper */
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+figcaption {
+	background-color: #eee;
+	font-size: 0.9em;
+	padding: 0.5em;
+}
+
+blockquote {
+	margin: 0;
+	padding: 0.2em 1em;
+	background-color: #eee;
+}
+
