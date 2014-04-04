@@ -1,8 +1,7 @@
 Title: Deploying my blog with Travis
-Date: 2014-04-04 14:30:00
+Date: 2014-04-04 14:45:00
 Slug: deploying-my-blog-with-travis
 Tags: pelican, travis-ci, github-pages
-Status: draft
 
 I was curious about having my blog deployed whenever I push a commit, so after a bit of googling I found this [handy tutorial][1] by Mathieu Leplatre.
 
@@ -30,9 +29,7 @@ And my modified `Makefile`
         ghp-import -b master $(OUTPUTDIR)
         @git push -fq https://${GH_TOKEN}@github.com/$(TRAVIS_REPO_SLUG).git master > /dev/null
 
-Key differences are the `-b master` parameter passed to `ghp-import` which tells it the update the master branch. I also copy my `.travis.yml` file to the output as it tells Travis only to build the `source` branch and I don't want it trying to `rake` my html.
-
-I also removed the check to see if the build is a pull request and just set Travis not to build pull requests.
+Key differences are the `-b master` parameter passed to `ghp-import` which tells it to update the master branch. I also copy my `.travis.yml` file to the output as it tells Travis only to build the `source` branch and I don't want it trying to `rake` my html.
 
 You can see it all on my [GitHub page][4].
 
