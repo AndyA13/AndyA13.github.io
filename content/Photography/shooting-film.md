@@ -1,7 +1,6 @@
 Title: Shooting Film
 Date: 2014-02-24 14:20:00
 Slug: shooting-film
-Category: Photography
 Tags: film, 35mm
 Status: draft
 
