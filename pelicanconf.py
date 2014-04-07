@@ -8,6 +8,9 @@ SITESUBTITLE = u'Blog'
 SITEURL = 'http://www.andrewaitken.com'
 THEME = 'themes/coffee-code'
 
+DISQUS_SITENAME = 'andrewaitken'
+
+
 STATIC_PATHS = ['images', 'static', ]
 EXTRA_PATH_METADATA = {
 	'static/CNAME': {'path': 'CNAME'},
