@@ -1,14 +1,13 @@
 Title: Shooting Film
-Date: 2014-02-24 14:20:00
+Date: 2014-04-08 14:30:00
 Slug: shooting-film
 Tags: film, 35mm, 120mm
-Status: draft
 
 I've been interested in photography ever since I found my Dad's old Praktica SLR. I was quite young at the time and would spend ages playing with it, turning the dials and noticing the shutter staying open that little bit longer. I didn't have a clue what it all meant, but that just made it all the more fascinating.
 
-It was almost 20 years later when a friend at work brought in his Canon DSLR. That sparked the interest again and I finally got my own DSLR, a Canon 500D.  I played around with it for a while before realising I still had a lot to learn. I practiced using my camera in manual mode, leart how the histogram worked and read some books on composition. But I still felt like I could do better.
+It was almost 20 years later when a friend at work brought in his Canon DSLR. That sparked the interest again and I finally got my own DSLR, a Canon 500D.  I played around with it for a while before realising I still had a lot to learn. I practiced using my camera in manual mode, learnt how the histogram worked and read some books on composition. But I still felt like I could do better.
 
-Somewhere along the line I found out about fully manual, mechanical SLR camers from the 80's and 90's. I decided to get one to force myself to work in manual mode and I ended up getting a Pentax MX with a 50mm f1.7 lens.  I also booked myself on a course, at a local gallery [Street Level Photo works][1], where I learned how to develop black and white film and make my own prints using an enlarger.
+Somewhere along the line I found out about fully manual, mechanical SLR cameras from the 80's and 90's. I decided to get one to force myself to work in manual mode and I ended up getting a Pentax MX with a 50mm f1.7 lens.  I also booked myself on a course, at a local gallery [Street Level Photo works][1], where I learned how to develop black and white film and make my own prints using an enlarger.
 
 ![Pentax MX][2] The Pentax MX - By Kinnerton - [Wikimedia][5]
 
@@ -26,7 +25,7 @@ I got my first roll of film developed by Ilford and was really happy with some o
 
 I loved using this camera, unfortunately the shutter now tends to stick at lower shutter speeds, even after a service from a local repair shop.
 
-Not knowing what shots you have until you get them developed adds a little bit of excitment when you see the negatives for the first time. Obviously that's not very good if you are trying to get an important shot, but when taking photos for fun, I found it helped me focus more on taking the shot and to try and makre sure I got it right first time.
+Not knowing what shots you have until you get them developed adds a little bit of excitement when you see the negatives for the first time. Obviously that's not very good if you are trying to get an important shot, but when taking photos for fun, I found it helped me focus more on taking the shot and to try and make sure I got it right first time.
 
 Shooting film is considered a bit of a hipster thing to do now, but I really enjoy the process and I think understanding where photography came from can really help you appreciate where it is now.  That's not to say I don't use my digital camera anymore, it certainly has it's advantages, but I enjoy having the choice.
 
@@ -34,7 +33,7 @@ Shooting film is considered a bit of a hipster thing to do now, but I really enj
 
 ## Playing
 
-When I got into film I discovered the "just for fun" side of photography, where goal wasn't nescsarily to take a great picture but to do it in a different or interesting way.  My first venture into this was when I bought a Holga medium format camera and a Holga wide angle pinhole camera. The pinhole photos have an interesting look with their infinite depth of field and massive vignetting.
+When I got into film I discovered the "just for fun" side of photography, where goal wasn't necessarily to take a great picture but to do it in a different or interesting way.  My first venture into this was when I bought a Holga medium format camera and a Holga wide angle pinhole camera. The pinhole photos have an interesting look with their infinite depth of field and massive vignetting.
 
 ![Pinhole][7] View from my old flat - Holga 120 WPC
 
