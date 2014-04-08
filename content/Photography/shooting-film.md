@@ -37,7 +37,7 @@ When I got into film I discovered the "just for fun" side of photography, where 
 
 ![Pinhole][7] View from my old flat - Holga 120 WPC
 
-After a few roles of medium format had been through my Holga, I modified it to take 35mm film. This has the cool effect of exposing the film sprocket holes and includes them in the photo.  The focus through the plastic lens of the Holga 120 GN isn't great, but that's not the point.
+After a few rolls of medium format had been through my Holga, I modified it to take 35mm film. This has the cool effect of exposing the film sprocket holes and includes them in the photo.  The focus through the plastic lens of the Holga 120 GN isn't great, but that's not the point.
 
 ![Old Fountain][8] Old fountain - Holga 120 GN - using 35mm film
 
