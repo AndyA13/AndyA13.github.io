@@ -28,7 +28,7 @@ This takes a few parameters:
 <dt>name</dt>
 <dd>The nice name for your application, e.g. “My Application”</dd>
 <dt>icon</dt>
-<dd>The icon to be displayed in umbraco, you’ll need to do a bit of css jiggery pokery to get it right. I’ve used nada then added my icon to the existing tray sprite and added a css class to position it.</dd>
+<dd>The icon to be displayed in umbraco, you’ll need to do a bit of css jiggery pokery to get it right. I’ve used nada.gif then added my icon to the existing tray sprite and added a css class which matches the application alias to position it.</dd>
 <dt>sortOrder</dt>
 <dd>You can put it at the start or in between existing apps, I set mine to 10 to make sure it was at the end.</dd>
 </dl>
@@ -36,7 +36,12 @@ This takes a few parameters:
 ### applications.config
 
 That should be your app set up, when you first run umbraco after creating that class, it should update the ~/config/applications.config automatically for you. I’ve found changing anything defined in the Application attribute after this point won’t be reflected in the applications.config, so if you need to make any changes, remember check that the applications.config reflects the new values.
-Application Name
+
+### Making it visible
+
+When you start up Umbraco, your application should be installed but you will need to allow yourself access before it is visible. In the Users section, select your user from the Users tree and tick the box next to your new application.
+
+### Application Name
 
 At the top of the tree on your application page, you will see that it is showing your application alias instead of the name, to update this you need to add a key setting to ~/umbraco/Config/Lang/en.xml (swapping “en” for whatever language you are using).
 
