@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="I am Andrew Aitken, a .net developer living in Glasgow." />
+    
+    <title>Andrew Aitken - pelican</title>
+
+    <!--<link rel="stylesheet" href="http://www.andrewaitken.com/theme/css/main.css" />-->
+    <link href="/theme/css/responsive.min.css" rel="stylesheet" />
+    <link href="/theme/css/site.css" rel="stylesheet" />
+    <link href="/theme/css/pygment.css" rel="stylesheet" />
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Andrew Aitken RSS Feed" />
+    
+    <!--[if lt IE 9 &!(IEMobile)]>
+        <script src="/theme/scripts/vendor/html5shiv.min.js"></script>
+        <script src="/theme/scripts/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="container">
+
+                <header>
+                    <h1><a href="http://www.andrewaitken.com">Andrew Aitken</a></h1>
+
+                        <h2>Blog</h2>
+
+                    <nav>
+                        <ul>
+                        </ul>
+                    </nav>
+                </header>
+            <div class="row">
+      
+      <div class="col-s-2">
+      </div>
+      <div class="col-s-8">
+
+
+              <article>
+
+                  <div class="row">
+
+                      <div class="col-s-12">
+                            <h1><a href="http://www.andrewaitken.com/2014/04/deploying-my-blog-with-travis/" title="Permalink to Deploying my blog with Travis">Deploying my blog with Travis</a></h1>
+
+<small>
+    <span class="fa fa-calendar"></span>
+    <span class="meta">Fri 04 April 2014</span>
+
+    <span class="fa fa-archive"></span>
+    <span class="meta"><a href="http://www.andrewaitken.com/category/my-blog/">My Blog</a></span>
+    
+    	<span class="fa fa-tags"></span>
+    	<span class="meta">
+				<a href="http://www.andrewaitken.com/tag/pelican/">pelican</a>
+				<a href="http://www.andrewaitken.com/tag/travis-ci/">travis-ci</a>
+				<a href="http://www.andrewaitken.com/tag/github-pages/">github-pages</a>
+		</span>
+    
+</small>                        </div>
+
+                    </div>
+                    
+                    <div class="row">
+
+                        <div class="col-s-12 post">
+
+                          <p>I was curious about having my blog deployed whenever I push a commit, so after a bit of googling I found this <a href="http://blog.mathieu-leplatre.info/publish-your-pelican-blog-on-github-pages-via-travis-ci.html" title="Mathieu Leplatre">handy tutorial</a> by Mathieu Leplatre.</p>
+<p>There were a few differences, I am using the GitHub user pages, where he was using a project page, so my blog output needs to sit on the <code>master</code> branch and not <code>gh-pages</code>.</p>
+<p>I'll just show what I had to do differently, so here is my <code>.travis.yml</code> file. I had a few issues with it, but nothing <a href="http://yamllint.com/" title="YAML Lint">YAML lint</a> and <a href="http://lint.travis-ci.org/" title="Travis WebLint">Travis WebLint</a> couldn't sort out.</p>
+<div class="highlight"><pre><span class="n">language</span><span class="o">:</span> <span class="n">python</span>
+<span class="n">python</span><span class="o">:</span> <span class="mf">2.7</span>
+<span class="n">env</span><span class="o">:</span>
+  <span class="n">global</span><span class="o">:</span>
+    <span class="n">secure</span><span class="o">:</span> <span class="s2">&quot;my-encrypted-token (truncated for size)&quot;</span>
+<span class="n">branches</span><span class="o">:</span>
+  <span class="n">only</span><span class="o">:</span>
+    <span class="o">-</span> <span class="n">source</span>
+<span class="n">install</span><span class="o">:</span>
+  <span class="o">-</span> <span class="s2">&quot;pip install -r requirements.txt&quot;</span>
+<span class="n">script</span><span class="o">:</span>
+  <span class="o">-</span> <span class="s2">&quot;make publish github&quot;</span>
+</pre></div>
+
+
+<p>And my modified <code>Makefile</code></p>
+<div class="highlight"><pre><span class="n">github</span><span class="p">:</span> <span class="n">publish</span>
+    <span class="n">cp</span> <span class="o">.</span><span class="n">travis</span><span class="o">.</span><span class="n">yml</span> <span class="n">output</span><span class="o">/</span>
+    <span class="n">ghp</span><span class="o">-</span><span class="kn">import</span> <span class="o">-</span><span class="n">b</span> <span class="n">master</span> <span class="err">$</span><span class="p">(</span><span class="n">OUTPUTDIR</span><span class="p">)</span>
+    <span class="nd">@git</span> <span class="n">push</span> <span class="o">-</span><span class="n">fq</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="p">{</span><span class="n">GH_TOKEN</span><span class="p">}</span><span class="nd">@github.com</span><span class="o">/</span><span class="err">$</span><span class="p">(</span><span class="n">TRAVIS_REPO_SLUG</span><span class="p">)</span><span class="o">.</span><span class="n">git</span> <span class="n">master</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+</pre></div>
+
+
+<p>Key differences are the <code>-b master</code> parameter passed to <code>ghp-import</code> which tells it to update the master branch. I also copy my <code>.travis.yml</code> file to the output as it tells Travis only to build the <code>source</code> branch and I don't want it trying to <code>rake</code> my html.</p>
+<p>You can see it all on my <a href="https://github.com/AndyA13/AndyA13.github.io">GitHub page</a>.</p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+<p class="paginator">
+    Page 1 / 1
+</p>
+
+        
+                    
+    </div>
+    <div class="col-s-2">
+    </div>
+
+</div>
+
+</div>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-s-8">
+                        
+                        <h4>blogroll</h4>
+                    
+                        <ul class="blogroll no-bullets">
+                                <li><a href="http://cameronfletcher.com/">Cameron Fletcher</a></li>
+                                <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                                <li><a href="https://twitter.com/sgxbsxn">Steven Gibson</a></li>
+                        </ul>
+
+                </div>
+
+                <div class="col-s-4">
+
+                        <h4>social</h4>
+                    
+                        <ul class="social no-bullets">
+                                <li><a href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                                <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                                <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-s-12 footer-meta">
+                    <p>
+                        Powered by <a href="http://getpelican.com" target="_blank">pelican</a> and <a href="http://responsivebp.com/" target="_blank">responsive</a> |
+                        <a href="https://github.com/AndyA13/pelican-theme">Coffee &amp; Code</a> |
+                        &copy; Andrew Aitken 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts at the bottom for improved performance. -->
+    <!--[if IE 8]>     
+    <script src="/theme/scripts/vendor/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <script src="/theme/scripts/vendor/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="/theme/scripts/responsive.min.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5045761-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'andrewaitken';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

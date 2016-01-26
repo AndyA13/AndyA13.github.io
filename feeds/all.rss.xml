@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Andrew Aitken</title><link>http://www.andrewaitken.com/</link><description>Blog</description><atom:link href="http://www.andrewaitken.com/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 26 Jan 2016 11:45:00 +0000</lastBuildDate><item><title>Suzuki Violin Book One</title><link>http://www.andrewaitken.com/2016/01/suzuki-violin-book-one/</link><description>&lt;p&gt;I realise this isn't computer related, but I figured I might be inclined to blog more if I didn't just limit it to programming subjects.&lt;/p&gt;
+&lt;p&gt;I bought a violin about 2 years ago and found a local teacher to get lessons once a week. Since then, my teacher moved to Sweden to have a baby but we continued the lessons on Skype after she had had the baby. From the very begginning I've been working my way through the Suzuki Violin Book 1 and more recently, the ABRSM Grade 1 Book.&lt;/p&gt;
+&lt;p&gt;I've finally reached the last song in the Suzuki book, &lt;a href="https://www.youtube.com/watch?v=Xy3pz-e8--M"&gt;Gavotte&lt;/a&gt; (that's not me), which is going well and I am really happy I have reached the level I am at. I do have a tendency to get bored of things and give up, but I think having a teacher with weekly lessons and hearing my self play more complex peices has kept me going.&lt;/p&gt;
+&lt;p&gt;I've also decided to do the ABRSM level 1 exam, so I have been learning the songs in that book too. My exam is in the process of being booked and should be before the end of March!&lt;/p&gt;
+&lt;p&gt;I have been thinking about upgrading my bow &amp;amp; violin, but the prices goes up quite steeply from beginner. I would like to go to the violin shop and try a couple of better ones, but I don't know if I'm good enough to notice a difference and I'm slightly worried I would notice a difference and end up wanting to buy it there and then.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 26 Jan 2016 11:45:00 +0000</pubDate><guid>tag:www.andrewaitken.com,2016-01-26:2016/01/suzuki-violin-book-one/</guid><category>violin</category></item><item><title>Getting parts of a Uri</title><link>http://www.andrewaitken.com/2015/05/getting-parts-of-request-uri/</link><description>&lt;p&gt;One thing that keeps coming up, but not enough for me to actually remember what I learnt last time, is how to get different parts of a request &lt;a href="https://msdn.microsoft.com/en-us/library/system.uri%28v=vs.110%29.aspx" title="MSDN"&gt;Uri&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;So I made a little &lt;a href="https://gist.github.com/AndyA13/147f079cf7d69c55038d" title="gist.github.com"&gt;console app&lt;/a&gt; that outputs the different parts from two example Uris.&lt;/p&gt;
+&lt;p&gt;Behold&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Uri Properties:
+
+Using          : https://www.example.com/folder/page.aspx?query=1&amp;amp;sample=2#anchor
+AbsolutePath   : /folder/page.aspx
+AbsoluteUri    : https://www.example.com/folder/page.aspx?query=1&amp;amp;sample=2#anchor
+Authority      : www.example.com
+DnsSafeHost    : www.example.com
+Fragment       : #anchor
+Host           : www.example.com
+HostNameType   : Dns
+IsAbsoluteUri  : True
+IsDefaultPort  : True
+IsFile         : False
+IsLoopback     : False
+IsUnc          : False
+LocalPath      : /folder/page.aspx
+OriginalString : https://www.example.com/folder/page.aspx?query=1&amp;amp;sample=2#anchor
+PathAndQuery   : /folder/page.aspx?query=1&amp;amp;sample=2
+Port           : 443
+Query          : ?query=1&amp;amp;sample=2
+Scheme         : https
+Segments       : /, folder/, page.aspx
+UserEscaped    : False
+UserInfo       :
+
+Using          : http://www.example.com/folder
+AbsolutePath   : /folder
+AbsoluteUri    : http://www.example.com/folder
+Authority      : www.example.com
+DnsSafeHost    : www.example.com
+Fragment       : 
+Host           : www.example.com
+HostNameType   : Dns
+IsAbsoluteUri  : True
+IsDefaultPort  : True
+IsFile         : False
+IsLoopback     : False
+IsUnc          : False
+LocalPath      : /folder
+OriginalString : http://www.example.com/folder
+PathAndQuery   : /folder
+Port           : 80
+Query          : 
+Scheme         : http
+Segments       : /, folder
+UserEscaped    : False
+UserInfo       :
+
+Uri.GetLeftPart(UriPartial part)
+
+Using                : https://www.example.com/folder/page.aspx?query=1&amp;amp;sample=2#anchor
+UriPartial.Authority : https://www.example.com
+UriPartial.Path      : https://www.example.com/folder/page.aspx
+UriPartial.Query     : https://www.example.com/folder/page.aspx?query=1&amp;amp;sample=2
+UriPartial.Scheme    : https://
+
+Using                : http://www.example.com/folder
+UriPartial.Authority : http://www.example.com
+UriPartial.Path      : http://www.example.com/folder
+UriPartial.Query     : http://www.example.com/folder
+UriPartial.Scheme    : http://
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Thu, 21 May 2015 14:00:00 +0100</pubDate><guid>tag:www.andrewaitken.com,2015-05-21:2015/05/getting-parts-of-request-uri/</guid><category>c#</category></item><item><title>Warning - ExtensionAttribute is defined in multiple assemblies</title><link>http://www.andrewaitken.com/2014/11/warning-extensionattribute-defined-multiple-assemblies/</link><description>&lt;p&gt;I've noticed a warning in Visual Studio in a few projects where it gives me the following warning after building,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;The predefined type &amp;quot;System.Runtime.CompilerServices.ExtensionAttribute&amp;quot; is defined in multiple assemblies in the global alias
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I don't like leaving warnings in my build but I didn't have time to look into it until today.  &lt;a href="http://stackoverflow.com/a/6518336/175394" title="stackoverflow.com"&gt;This handy tip&lt;/a&gt; from Remco te Wierik led me to the root of the issue. The .net &lt;a href="https://www.nuget.org/packages/Lucene.Net.Contrib/2.9.4.1" title="Nuget: Lucene.Contrib"&gt;Lucene contrib nuget package&lt;/a&gt; contains a reference Lucene.Net.FastVectorHighlighter which defines an &lt;code&gt;ExtensionAttribute&lt;/code&gt; class in the &lt;code&gt;System.Runtime.CompilerServices&lt;/code&gt; namespace.&lt;/p&gt;
+&lt;p&gt;Updating the assembly reference &lt;code&gt;alias&lt;/code&gt; from "global" to a custom one, fixed the warning.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 25 Nov 2014 13:30:00 +0000</pubDate><guid>tag:www.andrewaitken.com,2014-11-25:2014/11/warning-extensionattribute-defined-multiple-assemblies/</guid><category>.net</category><category>lucene</category></item><item><title>Shooting Film</title><link>http://www.andrewaitken.com/2014/04/shooting-film/</link><description>&lt;p&gt;I've been interested in photography ever since I found my Dad's old Praktica SLR. I was quite young at the time and would spend ages playing with it, turning the dials and noticing the shutter staying open that little bit longer. I didn't have a clue what it all meant, but that just made it all the more fascinating.&lt;/p&gt;
+&lt;p&gt;It was almost 20 years later when a friend at work brought in his Canon DSLR. That sparked the interest again and I finally got my own DSLR, a Canon 500D.  I played around with it for a while before realising I still had a lot to learn. I practiced using my camera in manual mode, learnt how the histogram worked and read some books on composition. But I still felt like I could do better.&lt;/p&gt;
+&lt;p&gt;Somewhere along the line I found out about fully manual, mechanical SLR cameras from the 80's and 90's. I decided to get one to force myself to work in manual mode and I ended up getting a Pentax MX with a 50mm f1.7 lens.  I also booked myself on a course, at a local gallery &lt;a href="http://www.streetlevelphotoworks.org/" title="Street Level Photo works"&gt;Street Level Photo works&lt;/a&gt;, where I learned how to develop black and white film and make my own prints using an enlarger.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pentax MX" src="/images/shooting-film/pentax-mx.jpg" title="Pentax MX - by Kinnerton (wikimedia)" /&gt; The Pentax MX - By Kinnerton - &lt;a href="/images/shooting-film/paris.jpg" title="Paris"&gt;Wikimedia&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Pentax MX has a built in light meter to help get your exposure right, but it's up to you to change the shutter speed and aperture (ISO isn't a variable once you've put the film in the camera). &lt;/p&gt;
+&lt;p&gt;&lt;img alt="Hope Street, Glasgow" src="/images/shooting-film/hope-street-glasgow.jpg" title="Hope Street, Glasgow" /&gt; Hope Street, Glasgow - Pentax MX - Ilford HP5 Plus 400&lt;/p&gt;
+&lt;p&gt;The first thing I noticed was the 50mm lens was much wider than the 50mm on my DSLR. The Canon 500D has a crop sensor which means you lose quite a bit of the frame compared to a normal 35mm camera. I loved being able to get more in the frame at a natural focal length, it also meant I had to get much closer if I wanted to fill the frame.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If your photographs aren't good enough, you're not close enough. - Robert Capa&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I got my first roll of film developed by Ilford and was really happy with some of the results. After that I went on the course at Street Level and learned to develop the film myself. Working in a darkroom is strangely relaxing, it's usually really quiet and the time just flies past.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Drinking" src="/images/shooting-film/drinking.jpg" title="Drinking" /&gt; Drinking - Pentax MX - Ilford HP5 Plus 400&lt;/p&gt;
+&lt;p&gt;I loved using this camera, unfortunately the shutter now tends to stick at lower shutter speeds, even after a service from a local repair shop.&lt;/p&gt;
+&lt;p&gt;Not knowing what shots you have until you get them developed adds a little bit of excitement when you see the negatives for the first time. Obviously that's not very good if you are trying to get an important shot, but when taking photos for fun, I found it helped me focus more on taking the shot and to try and make sure I got it right first time.&lt;/p&gt;
+&lt;p&gt;Shooting film is considered a bit of a hipster thing to do now, but I really enjoy the process and I think understanding where photography came from can really help you appreciate where it is now.  That's not to say I don't use my digital camera anymore, it certainly has it's advantages, but I enjoy having the choice.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Paris" src="/images/shooting-film/paris.jpg" title="Paris" /&gt; Mark during work trip to Paris - Canon 500D&lt;/p&gt;
+&lt;h2&gt;Playing&lt;/h2&gt;
+&lt;p&gt;When I got into film I discovered the "just for fun" side of photography, where goal wasn't necessarily to take a great picture but to do it in a different or interesting way.  My first venture into this was when I bought a Holga medium format camera and a Holga wide angle pinhole camera. The pinhole photos have an interesting look with their infinite depth of field and massive vignetting.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Pinhole" src="/images/shooting-film/glasgow-pinhole.jpg" title="Pinhole" /&gt; View from my old flat - Holga 120 WPC&lt;/p&gt;
+&lt;p&gt;After a few rolls of medium format had been through my Holga, I modified it to take 35mm film. This has the cool effect of exposing the film sprocket holes and includes them in the photo.  The focus through the cheap lens of the Holga 120 GN isn't great, but that's not the point.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Old Fountain" src="/images/shooting-film/old-fountain.jpg" title="Old Fountain" /&gt; Old fountain - Holga 120 GN - using 35mm film&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 08 Apr 2014 14:30:00 +0100</pubDate><guid>tag:www.andrewaitken.com,2014-04-08:2014/04/shooting-film/</guid><category>film</category><category>35mm</category><category>120mm</category></item><item><title>Deploying my blog with Travis</title><link>http://www.andrewaitken.com/2014/04/deploying-my-blog-with-travis/</link><description>&lt;p&gt;I was curious about having my blog deployed whenever I push a commit, so after a bit of googling I found this &lt;a href="http://blog.mathieu-leplatre.info/publish-your-pelican-blog-on-github-pages-via-travis-ci.html" title="Mathieu Leplatre"&gt;handy tutorial&lt;/a&gt; by Mathieu Leplatre.&lt;/p&gt;
+&lt;p&gt;There were a few differences, I am using the GitHub user pages, where he was using a project page, so my blog output needs to sit on the &lt;code&gt;master&lt;/code&gt; branch and not &lt;code&gt;gh-pages&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I'll just show what I had to do differently, so here is my &lt;code&gt;.travis.yml&lt;/code&gt; file. I had a few issues with it, but nothing &lt;a href="http://yamllint.com/" title="YAML Lint"&gt;YAML lint&lt;/a&gt; and &lt;a href="http://lint.travis-ci.org/" title="Travis WebLint"&gt;Travis WebLint&lt;/a&gt; couldn't sort out.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;language&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;
+&lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;2.7&lt;/span&gt;
+&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;global&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;secure&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;my-encrypted-token (truncated for size)&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;branches&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;source&lt;/span&gt;
+&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pip install -r requirements.txt&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+  &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;make publish github&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And my modified &lt;code&gt;Makefile&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;publish&lt;/span&gt;
+    &lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;travis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+    &lt;span class="n"&gt;ghp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OUTPUTDIR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nd"&gt;@git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;fq&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="n"&gt;GH_TOKEN&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="nd"&gt;@github.com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TRAVIS_REPO_SLUG&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Key differences are the &lt;code&gt;-b master&lt;/code&gt; parameter passed to &lt;code&gt;ghp-import&lt;/code&gt; which tells it to update the master branch. I also copy my &lt;code&gt;.travis.yml&lt;/code&gt; file to the output as it tells Travis only to build the &lt;code&gt;source&lt;/code&gt; branch and I don't want it trying to &lt;code&gt;rake&lt;/code&gt; my html.&lt;/p&gt;
+&lt;p&gt;You can see it all on my &lt;a href="https://github.com/AndyA13/AndyA13.github.io"&gt;GitHub page&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Fri, 04 Apr 2014 14:45:00 +0100</pubDate><guid>tag:www.andrewaitken.com,2014-04-04:2014/04/deploying-my-blog-with-travis/</guid><category>pelican</category><category>travis-ci</category><category>github-pages</category></item><item><title>Creating a Custom Section in Umbraco 6 - Part 2: The Tree</title><link>http://www.andrewaitken.com/2013/07/creating-a-custom-section-in-umbraco-6-part-2-the-tree/</link><description>&lt;p&gt;The tree needs a little bit more work to implement than the application.&lt;/p&gt;
+&lt;p&gt;Here is the initial class declaration.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[Tree(&amp;quot;appAlias&amp;quot;, &amp;quot;treeAlias&amp;quot;, &amp;quot;Tree Title&amp;quot;)]&lt;/span&gt;
+&lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;class&lt;/span&gt; &lt;span class="err"&gt;MyApplicationTree&lt;/span&gt; &lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="err"&gt;ITree&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Tree Attribute&lt;/h3&gt;
+&lt;p&gt;The Tree attribute takes similar parameters to the Application attribute.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;appAlias&lt;/dt&gt;
+&lt;dd&gt;The alias of the application this tree belongs too.&lt;/dd&gt;
+&lt;dt&gt;alias&lt;/dt&gt;
+&lt;dd&gt;The alias for this tree.&lt;/dd&gt;
+&lt;dt&gt;title&lt;/dt&gt;
+&lt;dd&gt;The title of the tree, not entirely sure if this is used.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h3&gt;ITree&lt;/h3&gt;
+&lt;p&gt;This has a few properties and methods we need to implement.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;public interface ITree
+{
+    string app { set; }
+    int id { set; }
+    void Render(ref XmlDocument Tree);
+    void RenderJS(ref StringBuilder Javascript);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The first two are easily implemented with an automatic properties.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;public string app { get; set; }
+public int id { get; set; }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We use the RenderJS method to add javascript to the backoffice that will allow us to change the content on the right hand side frame. We will call this when we click on a node in the tree.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;RenderJS&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ref&lt;/span&gt; &lt;span class="n"&gt;StringBuilder&lt;/span&gt; &lt;span class="n"&gt;javascript&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;javascript&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;@&amp;quot;function openLocation(url) { parent.right.document.location.href = url; }&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Lastly we need to build our actual tree in the Render method. We need to build it in an XmlDocument and it's fairly straightforward once you've done it a few times.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;Render&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;ref&lt;/span&gt; &lt;span class="nt"&gt;XmlDocument&lt;/span&gt; &lt;span class="nt"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;
+    &lt;span class="n"&gt;XmlNode&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DocumentElement&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Get&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;somewhere&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="nb"&gt;static&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt;
+        &lt;span class="n"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;XmlElement&lt;/span&gt; &lt;span class="n"&gt;treeElement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;menu&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeID&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;action&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascript:openLocation(&amp;#39;/Path/To/Document.aspx?id={0}&amp;#39;);&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;icon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;myClosedIcon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Icons&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;Umbraco&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Umbraco&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;openIcon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;myOpenIcon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeType&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+            &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AppendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;else&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;We&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ll&lt;/span&gt; &lt;span class="n"&gt;come&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;later&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This should create 10 nodes in your tree, you will probably want to switch this to get data from a database or something similar. Or you may have a few static root nodes that then load data when expanded.
+Child Nodes&lt;/p&gt;
+&lt;p&gt;To load child nodes in a tree, you call the tree again with the id of the parent node. This is where that if (this.id == -1) comes in. You set the tree to call in the src attribute of the node.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;treeElement.SetAttribute(&amp;quot;src&amp;quot;, this.GetServiceUrl(i));
+
+// ... snip ...
+
+private string GetServiceUrl(int nodeId)
+{
+    TreeService treeService = new TreeService(nodeId, &amp;quot;treeAlias&amp;quot;, false, false, TreeDialogModes.fulllink, this.app);
+    return treeService.GetServiceUrl();
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We then catch this like so:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;Render&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;ref&lt;/span&gt; &lt;span class="nt"&gt;XmlDocument&lt;/span&gt; &lt;span class="nt"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt; &lt;span class="n"&gt;base&lt;/span&gt; &lt;span class="n"&gt;elements&lt;/span&gt;
+    &lt;span class="n"&gt;XmlNode&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DocumentElement&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="n"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Get&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;somewhere&lt;/span&gt; &lt;span class="n"&gt;or&lt;/span&gt; &lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="nb"&gt;static&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt; &lt;span class="n"&gt;root&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Add&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="n"&gt;for&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt;
+        &lt;span class="n"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;XmlElement&lt;/span&gt; &lt;span class="n"&gt;treeElement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;menu&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeID&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;action&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascript:openLocation(&amp;#39;/Path/To/Document.aspx?id={0}&amp;#39;);&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;icon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;myClosedIcon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Icons&lt;/span&gt; &lt;span class="n"&gt;go&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;Umbraco&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Umbraco&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;openIcon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;myOpenIcon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeType&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+            &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AppendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;treeElement&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+    &lt;span class="nt"&gt;else&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Get&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;parent&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Just&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt;
+        &lt;span class="n"&gt;XmlElement&lt;/span&gt; &lt;span class="n"&gt;childElement&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CreateElement&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;menu&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeID&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="m"&gt;99&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Child of &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;action&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;javascript:openLocation(&amp;#39;/Path/To/AnotherDocument.aspx?id={0}&amp;#39;);&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;src&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Empty&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;icon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;icon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;openIcon&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;icon.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SetAttribute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;nodeType&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;tree&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+        &lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;AppendChild&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;childElement&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Need More Node Ids?&lt;/h3&gt;
+&lt;p&gt;The basic tree works really well if you have a unique Id for every item and hierarchy is defined within that by parent Ids, like the content in Umbraco content. But if you need multiple roots nodes, each showing items that may have conflicting Ids, then you can add another tree.&lt;/p&gt;
+&lt;p&gt;By default all trees for an application will be added to the root, this might be what you want, but if it's not, there is an overload for the Tree attribute to stop it being loaded.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[Tree(&amp;quot;appAlias&amp;quot;, &amp;quot;treeAlias&amp;quot;, &amp;quot;My Child Tree&amp;quot;, &amp;quot;.sprTreeFolder&amp;quot;, &amp;quot;.sprTreeFolder_o&amp;quot;, &amp;quot;&amp;quot;, false, false)]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It's the last boolean parameter which tells Umbraco not to initialize the tree, so it won't be added to the root. You can then change your src attributes on your nodes to point to the new tree.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;private string GetTreeServiceUrl(string treeAlias, int nodeId)
+{
+    TreeService treeService = new TreeService(nodeId, treeAlias, false, false, TreeDialogModes.fulllink, this.app);
+    return treeService.GetServiceUrl();
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Context Menus&lt;/h3&gt;
+&lt;p&gt;You can control the context menu available on a node by setting the menu attribute on the node. This isn't something I have implemented yet, there is more information for this available here.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Wed, 17 Jul 2013 13:53:32 +0100</pubDate><guid>tag:www.andrewaitken.com,2013-07-17:2013/07/creating-a-custom-section-in-umbraco-6-part-2-the-tree/</guid><category>umbraco</category></item><item><title>Creating a Custom Section in Umbraco 6 - Part 1: The Application</title><link>http://www.andrewaitken.com/2013/07/creating-a-custom-section-in-umbraco-6-part-1-the-application/</link><description>&lt;p&gt;I’ve been doing a bit of work lately creating a custom section in an Umbraco v6.1 install. I needed a nice tree for my custom section, so after a lot of googling and digging through the Umbraco source, I managed to get it all working nicely.  I’ve put this guide together to hopefully make the process a little easier for myself and any other weary internet travellers who happen to stumble upon it.&lt;/p&gt;
+&lt;h3&gt;The Application&lt;/h3&gt;
+&lt;p&gt;This is much easier now in version 6, to add a new application you just new to create a class that implements umbraco.interfaces.IApplication and has the Application attribute.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;[Application(&amp;quot;alias&amp;quot;, &amp;quot;Real Name&amp;quot;, &amp;quot;images/nada.gif&amp;quot;, 10)]&lt;/span&gt;
+&lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;class&lt;/span&gt; &lt;span class="err"&gt;MyApplication&lt;/span&gt; &lt;span class="err"&gt;:&lt;/span&gt; &lt;span class="err"&gt;IApplication&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;IApplication&lt;/h3&gt;
+&lt;p&gt;This interface actually has no definitions, so it’s a piece of cake to implement :)&lt;/p&gt;
+&lt;h3&gt;Application Attribute&lt;/h3&gt;
+&lt;p&gt;This takes a few parameters:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;alias&lt;/dt&gt;
+&lt;dd&gt;Your application alias, usually starts lowercase eg “myApplication”&lt;/dd&gt;
+&lt;dt&gt;name&lt;/dt&gt;
+&lt;dd&gt;The nice name for your application, e.g. “My Application”&lt;/dd&gt;
+&lt;dt&gt;icon&lt;/dt&gt;
+&lt;dd&gt;The icon to be displayed in umbraco, you’ll need to do a bit of css jiggery pokery to get it right. I’ve used nada.gif then added my icon to the existing tray sprite and added a css class which matches the application alias to position it.&lt;/dd&gt;
+&lt;dt&gt;sortOrder&lt;/dt&gt;
+&lt;dd&gt;You can put it at the start or in between existing apps, I set mine to 10 to make sure it was at the end.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h3&gt;applications.config&lt;/h3&gt;
+&lt;p&gt;That should be your app set up, when you first run umbraco after creating that class, it should update the ~/config/applications.config automatically for you. I’ve found changing anything defined in the Application attribute after this point won’t be reflected in the applications.config, so if you need to make any changes, remember check that the applications.config reflects the new values.&lt;/p&gt;
+&lt;h3&gt;Making it visible&lt;/h3&gt;
+&lt;p&gt;When you start up Umbraco, your application should be installed but you will need to allow yourself access before it is visible. In the Users section, select your user from the Users tree and tick the box next to your new application.&lt;/p&gt;
+&lt;h3&gt;Application Name&lt;/h3&gt;
+&lt;p&gt;At the top of the tree on your application page, you will see that it is showing your application alias instead of the name, to update this you need to add a key setting to ~/umbraco/Config/Lang/en.xml (swapping “en” for whatever language you are using).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;area&lt;/span&gt; &lt;span class="na"&gt;alias=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;sections&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    ...
+    &lt;span class="c"&gt;&amp;lt;!-- Add this line --&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;key&lt;/span&gt; &lt;span class="na"&gt;alias=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;myApplication&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;My Application&lt;span class="nt"&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/area&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Your app should now have a nice name.&lt;/p&gt;
+&lt;p&gt;I will post a guide to the trees later this week.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 16 Jul 2013 13:28:42 +0100</pubDate><guid>tag:www.andrewaitken.com,2013-07-16:2013/07/creating-a-custom-section-in-umbraco-6-part-1-the-application/</guid><category>umbraco</category></item><item><title>Nearly there</title><link>http://www.andrewaitken.com/2013/07/nearly-there/</link><description>&lt;p&gt;Well, I've updated the site. Unfortunately all my posts are now marked as being created in the last few days. So that's on my "to fix" list.&lt;/p&gt;
+&lt;p&gt;In the mean time though, you can now browse my site on a phone.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Fri, 05 Jul 2013 14:23:49 +0100</pubDate><guid>tag:www.andrewaitken.com,2013-07-05:2013/07/nearly-there/</guid></item><item><title>Making things squishy</title><link>http://www.andrewaitken.com/2013/06/making-things-squishy/</link><description>&lt;p&gt;I've been playing about with &lt;a href="http://twitter.github.io/bootstrap/"&gt;Twitter's Bootstrap&lt;/a&gt; and decided to convert my blog over to use that.&lt;/p&gt;
+&lt;p&gt;I've got an offline version complete and will be updating the site shortly, it will also be responsive and look lovely on mobile devices.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Mon, 24 Jun 2013 13:45:49 +0100</pubDate><guid>tag:www.andrewaitken.com,2013-06-24:2013/06/making-things-squishy/</guid></item><item><title>It's in there somewhere</title><link>http://www.andrewaitken.com/2013/03/its-in-there-somewhere/</link><description>&lt;p&gt;&lt;img alt="It's in there somewhere" src="https://s3-eu-west-1.amazonaws.com/andrewaitken.com-media/lines2.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; cracks knuckles &lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Thu, 14 Mar 2013 10:50:20 +0000</pubDate><guid>tag:www.andrewaitken.com,2013-03-14:2013/03/its-in-there-somewhere/</guid><category>.net</category></item><item><title>Instant insanity solver</title><link>http://www.andrewaitken.com/2013/01/instant-insanity-solver/</link><description>&lt;p&gt;I was visiting my sister for Christmas and they had a puzzle for us to play with. It's called the Instant Insanity puzzle, or at least it was a variation of it with old comic book covers instead of plain colours like the one on &lt;a href="http://en.wikipedia.org/wiki/Instant_Insanity"&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Pretty much everyone had a shot but nobody could quite get all 4 cubes to have different sides. Like a true geek I decided to write some code to solve it for me.&lt;/p&gt;
+&lt;p&gt;I put a little sticker with an arrow on each cube so I could identify them and what direction was "north". This allowed me to map the cubes in code and also reverse the map when the code found a solution.&lt;/p&gt;
+&lt;p&gt;You can find the code here: &lt;a href="https://github.com/AndyA13/InstantInsanitySolver"&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;As it says in the Readme, it definitely needs refactored but it got the job done. It ran pretty much instantly and found 4 solutions (you can turn the stack 90 degrees and still have the same solution). It also finds 65,532 non solutions but I have to assume there are four of each one, making there 16,383 invalid solutions. A lot less than claimed on the box...&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 29 Jan 2013 21:12:05 +0000</pubDate><guid>tag:www.andrewaitken.com,2013-01-29:2013/01/instant-insanity-solver/</guid><category>c#</category><category>.net</category></item><item><title>Comma seperated lists</title><link>http://www.andrewaitken.com/2013/01/comma-seperated-lists/</link><description>&lt;p&gt;While working on a site recently I had to output the name property from a list of objects that had been selected by the user.&lt;/p&gt;
+&lt;p&gt;I wrote a handy little method that let me pass in the objects and a Func to select the property to be used in the list.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;private string ToCommaSeperatedString&amp;lt;T&amp;gt;(IEnumerable&amp;lt;T&amp;gt; items, Func&amp;lt;T, string&amp;gt; property)
+{
+    if (items != null &amp;amp;&amp;amp; items.Count() &amp;gt; 0)
+    {
+        List&amp;lt;string&amp;gt; values = new List&amp;lt;string&amp;gt;();
+
+        foreach (T item in items)
+        {
+            values.Add(property.Invoke(item));
+        }
+
+        if (values.Count &amp;gt; 0)
+        {
+            return String.Join(&amp;quot;, &amp;quot;, values);
+        }
+    }
+
+    return String.Empty;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Embedding code is still something of a work in progress. Just noticed it had deleted part of the method declaration.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Fri, 18 Jan 2013 14:36:00 +0000</pubDate><guid>tag:www.andrewaitken.com,2013-01-18:2013/01/comma-seperated-lists/</guid><category>c#</category></item><item><title>Model.Parent == null</title><link>http://www.andrewaitken.com/2012/08/model.parent-null/</link><description>&lt;p&gt;Thought I would put up a quick post on an issue that I came across when converting my blog to Umbraco.&lt;/p&gt;
+&lt;p&gt;I have a macro that lists posts, it will show the normal page as well as the filtered pages for categories and tags.  While trying to get my tag filter to work I hit a strange issue.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;if (Model.Parent != null &amp;amp;&amp;amp; Model.Parent.Id == 1234)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the above if statement, Model.Parent was always null.&lt;/p&gt;
+&lt;p&gt;Parent should only be null if you are on the homepage, so I checked Model.Level and sure enough it was 1.&lt;/p&gt;
+&lt;p&gt;It took a bit of head scratching and some fruitless googling before I realized it was because the node I was loading was called "Blog", as was the root element of my site. Doh!&lt;/p&gt;
+&lt;p&gt;Quick rename of the tag (and the category as it would have suffered the same problem) and all was good in the world of Umbraco again.&lt;/p&gt;
+&lt;p&gt;I'm still not 100% sure on the rules of nodes with the same name. They seem to be fine if they are not direct descendants of one another.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Wed, 29 Aug 2012 21:52:48 +0100</pubDate><guid>tag:www.andrewaitken.com,2012-08-29:2012/08/model.parent-null/</guid><category>umbraco</category></item><item><title>Another small update</title><link>http://www.andrewaitken.com/2012/08/another-small-update/</link><description>&lt;p&gt;I think I've been to &lt;a href="http://www.badgerbadgerbadger.com/"&gt;BadgerBadgerBadger&lt;/a&gt; more times than I've written blog posts. I keep thinking something I've done would be interesting to blog about but when it comes down to it I can never think of what to write.&lt;/p&gt;
+&lt;p&gt;For now though, I've just converted my blog over to Umbraco, only took me a couple of evenings. I'm hoping the nicer backend than my custom site with it's out the box asp.net styles will encourage me to write more.&lt;/p&gt;
+&lt;p&gt;I will have a few things to blog about in the near future too. I am currently building a remote control rover robot based on a QWERK control board.  I've hit a bit of a snag trying to step down my 7.5v battery to 3v for the motors but hopefully I'll get that sussed out soon then I can crack on and focus on the wireless part of the project.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Wed, 29 Aug 2012 21:12:53 +0100</pubDate><guid>tag:www.andrewaitken.com,2012-08-29:2012/08/another-small-update/</guid><category>blog</category></item><item><title>Small update</title><link>http://www.andrewaitken.com/2012/01/small-update/</link><description>&lt;p&gt;Finally got round to fixing an issue where a 404 was being recorded as error.  Should save some disk space :)  I've also added a new friend link for Greg and Jen who are off traveling round the world.&lt;/p&gt;
+&lt;p&gt;Hopefully this will inspire me to get my ass in gear and do a bit more work on my blog and maybe even write some blog posts! One thing I really want to do is update the design and javascript so when I post code it fits on the page and is syntax highlighted automatically.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Wed, 18 Jan 2012 21:38:39 +0000</pubDate><guid>tag:www.andrewaitken.com,2012-01-18:2012/01/small-update/</guid><category>blog</category></item><item><title>500 Recipes for chicken</title><link>http://www.andrewaitken.com/2011/07/500-recipes-for-chicken/</link><description>&lt;p&gt;It's been another week and I've passed the last two exams. 70-516, accessing data with .NET 4 and 70-519, desgining and developing web applications using .NET 4. So I'm an MCPD now. Yay!&lt;/p&gt;
+&lt;p&gt;We've noticed it raining a bit more every day, but on Friday night it was non-stop downpour. It's Sunday now and the rain is just getting silly.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Refreshments" src="https://lh3.googleusercontent.com/-Xg4wkHdb5zY/TiLCmMfUA2I/AAAAAAAAAZM/IK1whDDil2M/s400/IMGP0073.JPG" /&gt;&lt;/p&gt;
+&lt;p&gt;After passing the last exam on Friday we decided to celebrate by heading north to Calangute where there are a lot more bars and clubs. Gareth, Marc and Sanjay came along for a few drinks. Thomas got a hookah with apple flavoured tobacco which was strange but nice at the same time. It was only Thomas and me who were up for staying out, so when the other guys got a taxi home, we headed across the road to a club called Tito's.&lt;/p&gt;
+&lt;p&gt;It was 1500rs (£21) to get in, with free drinks all night, and they let us both in for the price of one. The inside of the club was actually quite small but pretty busy. As with every other bar we go to, the guys out number the girls about twenty to one. We stayed until about 3am then got a taxi back to the apartments.&lt;/p&gt;
+&lt;p&gt;I really wanted to go see an elephant but after lunch on Saturday I had to stay within close proximity of the toilet for the rest of the day. :(&lt;/p&gt;
+&lt;p&gt;My three weeks in Goa has been fun. Our apartment was clean and the food cooked for us has been excellent. With all the studying we didn't get time to do very much else, but what we have seen has been fun. I think if I was going to come back it would need to be in the dry season, although I don't think I could handle the temperatures they get over here.&lt;/p&gt;
+&lt;p&gt;I am looking forward to going home though. I'd do anything for a bacon double cheese burger just now. The food options here are quite limited. I seen a book today that summed it up quite well, "500 recipes for chicken".&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Sun, 17 Jul 2011 12:12:35 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-07-17:2011/07/500-recipes-for-chicken/</guid><category>goa</category><category>mcpd</category></item><item><title>One week to go</title><link>http://www.andrewaitken.com/2011/07/one-week-to-go/</link><description>&lt;p&gt;Last week went well. We went over the Windows Communication Foundation (WCF) books and passed the 70-513 exam with 950/1000. To be honest the course was too fast and I think I'll be keeping the books for future reference. WCF is vast. There is so much in there and to cover it all in three days was just not enough to really get to grips with it.&lt;/p&gt;
+&lt;p&gt;I can't beleive it's been two weeks already. The time has really flown past. So far we have completed eight books, two exams and we are halfway through the two data access in .Net 4 books. Once we finish that we will have another exam, then we will sit the MCPD exam. I'm not sure if we get any books for the last one, as it is more of a summary of all the other modules we have studied so far.&lt;/p&gt;
+&lt;p&gt;So far the data modules have been quite straight forward and tomorrow we start a module about using entity framework in an n-tier environment which I'm quite interested in.&lt;/p&gt;
+&lt;p&gt;Not a lot else has been happening. We went out for a drink on Friday after passing the WCF exam. We studied a lot this week and haven't gotten out much so not a lot to report.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Sun, 10 Jul 2011 17:26:59 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-07-10:2011/07/one-week-to-go/</guid><category>goa</category><category>mcpd</category></item><item><title>Down the road</title><link>http://www.andrewaitken.com/2011/07/down-the-road/</link><description>&lt;p&gt;Well today went as well as could be expected. Gareth and I felt we were as prepared as we would ever be to take the exam (70-515) and decided to take it in the afternoon. We are a day ahead on the course and ideally would have sat the exam on Tuesday, but for some reason the test centre was closed on Tuesday so we decided to bite the bullet and go for it today.&lt;/p&gt;
+&lt;p&gt;What a relief. The exam questions came thick and fast but I felt very much on top of it. In fact, when I found out I had gotten 880 out of 1000 I was slightly disappointed. I honestly don't know what questions I got wrong. Never the less, 880 is a pass and that's all that really matters.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Church in Goa" src="https://lh4.googleusercontent.com/-UhT08pZmGSM/ThINyCJhr8I/AAAAAAAAAVI/mC4Ebfk73oU/s400/IMGP0045.JPG" /&gt;&lt;/p&gt;
+&lt;p&gt;We headed back to the apartments early as we can start WCF tomorrow and we are still one day ahead of schedule. We picked up Marc and Ramu from the other apartments and headed out for the afternoon. We had a few (understatement) drinks in Hotel Fidalgo (I'm sure its Fandango) then headed back for dinner.&lt;/p&gt;
+&lt;p&gt;We picked up the almost everyone else after dinner and headed to the local hotel Vivanta for a drink. It was very fancy and very quiet but twice the price of hotel Fandango, still less than £2 for a beer though. After that we headed to the Marriott. It was a bit of a trek but we made it, hot and thirsty. The Marriott is a five star hotel and prices for beer are about the same as the UK, but again it was very quiet.&lt;/p&gt;
+&lt;p&gt;At this point a Gareth and Thomas threw in the towel and headed back to the apartments, but the rest of us soldiered on and headed to a bar we had heard of called Down the Road.&lt;/p&gt;
+&lt;p&gt;For some reason they don't have regular music here, instead they have people singing popular songs. In Down the Road it was a man and his wife taking turns. They were very good and had some songs by the Killers and Jason Mraz to name a few. This place was much better. For a Monday night it was pretty busy and we agreed that it is where we should go on Saturday night.&lt;/p&gt;
+&lt;p&gt;Tomorrow we try to tame the WCF beast. I'm sure I will come out of this one with a few scars but passing this first exam has helped a lot and we are going to give it all we've got.&lt;/p&gt;
+&lt;p&gt;I'm a bit tipsy, gonna sleep now.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Mon, 04 Jul 2011 20:05:16 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-07-04:2011/07/down-the-road/</guid><category>goa</category><category>mcpd</category></item><item><title>Hello bedsheets</title><link>http://www.andrewaitken.com/2011/07/hello-bedsheets/</link><description>&lt;p&gt;Well we've kicked it into high gear now. We are in class from 9-5, study at the apartment until 7:30, go for dinner, then go back and study until about 9 or 10. I keep getting really tired in class which is annoying because I'm sure I'm getting enough sleep. Divakar had coffee today and it smelled so good, I'm not sure if I trust the coffee machine though.&lt;/p&gt;
+&lt;p&gt;Tonight I went through 95 test questions for the 70-515 exam. Took around 3 hours in total and I've got a list of stuff I want to look into before the exam. Good news is I got enough right that it would have been a pass (821/1000). That's a bit of a confidence booster because we have both felt totally overwhelmed the last few days.&lt;/p&gt;
+&lt;p&gt;I'm still a little worried about only having 2 days to study for the WCF exam. But we are hoping the WCF exam will be a lot more focused and easier to study for than the web development exam which covers such a vast amount.&lt;/p&gt;
+&lt;h3&gt;Other Happenings&lt;/h3&gt;
+&lt;p&gt;We took a walk down 18th June Street the other day. There are lots of shops selling car batteries. We found the Bombay bazaar which seems to sell some nice things but the staff are constantly trying to show you things. Outside isn't much better, I got followed down the street by a woman trying to sell me cashmere pashminas. I must have told her "no" about ten times. They are pretty cheap but I don't know anyone who would want one. We got caught in the rain on the way back, it started off light but in about 5 minutes it was a torrential downpour. I did manage to run from Koenig back to the apartment without any anterior tibialis issues. It's been a while since I've been able to run that far.&lt;/p&gt;
+&lt;p&gt;Today on the way back to apartment there were two guys selling bed sheets on the street. As we passed he just looked at Gareth and said, "hello bedsheets," in a husky voice. We didn't know what to say to that.&lt;/p&gt;
+&lt;p&gt;I updated my photos on &lt;a href="https://picasaweb.google.com/103470855459885510201/201106Goa?authuser=0&amp;amp;feat=directlink"&gt;Picasa&lt;/a&gt; yesterday, I don't expect there will be much more for me to post over the next two weeks.&lt;/p&gt;
+&lt;p&gt;Sorry if this post seems a bit broken, I think my brain has already gone to bed.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Fri, 01 Jul 2011 17:36:32 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-07-01:2011/07/hello-bedsheets/</guid><category>goa</category><category>mcpd</category></item><item><title>Non stop tooting</title><link>http://www.andrewaitken.com/2011/06/non-stop-tooting/</link><description>&lt;p&gt;My stomach is fine, thank you.  Gareth and I went for a walk to find the supermarket after class. It's up to about 85% humidity today, according to MSN weather it's 30 degrees but feels like 39!&lt;/p&gt;
+&lt;p&gt;While trying to cross the main road a bus stopped to pick us up, so we sheepishly walked away. After about five minutes a gap opened up and we managed to sprint across the road with only a few mopeds having to toot and swerve. The locals look at us very strangely. I thought they would be used to seeing tourists around here but apparently not.  A lot of them just stare at Gareth, which is a bit rude.&lt;/p&gt;
+&lt;p&gt;The traffic here is insane. There's no other way to describe it. Walking to the mall the sound of horns is pretty much non stop, they peep when they over take, when they approach pedestrians, when they pull out and pretty much whenever they feel like it. At least they drive on the left. Most of the time.&lt;/p&gt;
+&lt;p&gt;We found the shopping mall and a KFC. It's quite a walk, about as far as I was willing to go in this heat and humidity. I've noticed there are a lot of security guards around some buildings, our apartment has one at the gate and there is one in the reception area at Koenig. The mall was a different world, it had 3 or 4 security guards at the main entrance. To get inside we had to go through a metal detector and get scanned by a guard. There were several security guards inside and a man was standing at the top of every escalator. The shops were all very trendy looking and were priced to match.  I bought some BBQ Pringles and a bunch of mini bananas.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="The alleged korma" src="https://lh6.googleusercontent.com/-IjiTpIkoBMM/TgnGbR2rQLI/AAAAAAAAANY/ebCF4h27uJ0/s400/IMAG0091.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;For lunch today I ordered chicken korma. I thought this would be a safer choice after the bag of grey slime I got yesterday. I have no idea how they do it but the chicken korma was even more grey than the chow mein and looked more like a tub of gruel. Fortunately it only tasted half as bad as it looked.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Tue, 28 Jun 2011 14:15:46 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-06-28:2011/06/non-stop-tooting/</guid><category>goa</category><category>mcpd</category></item><item><title>Goa Baby</title><link>http://www.andrewaitken.com/2011/06/goa-baby/</link><description>&lt;p&gt;Getting here was fairly uneventful. The wait in Heathrow was made easier by a long lunch and couple of pints of Staropramen. The plane to was a 747 and for some reason was about 28 degrees inside. Thankfully the aircon kicked in once we were in the air and it cooled down to a more manageable heat. We had two seats at the very back of the plane so we didn't have to sit next to anyone else. In the nine hour flight I think I managed two, maybe two and a half hours sleep. Leaving the plane at Mumbai I thought I had walked through some sort of exhaust vent for the plane. I soon realised it was just the air. The temperature is around 30 degrees and humidity is a sticky 75%. When we got on the Goa flight, there was vapour pouring out from around the overhead luggage racks. I guess it was the dry air coming out of the air conditioning reacting with the humid air coming in through the door.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="It's a bad sign" src="https://lh3.googleusercontent.com/-k8gsu3MrjmI/Tgh1SWRF1-I/AAAAAAAAAJw/OOCnls_f7u4/s400/IMGP0009.JPG" /&gt;&lt;/p&gt;
+&lt;p&gt;There was also a "Refusal Room" in Goa airport. See my other photos here &lt;a href="https://picasaweb.google.com/103470855459885510201/201106Goa?feat=directlink"&gt;2011-06 Goa&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;The Apartment&lt;/h3&gt;
+&lt;p&gt;The apartment is pretty much what I expected. We have a room each and Gareth's room has an en-suite, so we have a bathroom each. The bedrooms have air conditioning which is pretty much essential for me as the heat doesn't go anywhere at night. We get our breakfast and dinner served in another apartment. It's in the same building but on a different block so we need to go down to the garage and back up a different elevator. The elevators have a sliding metal grate and can't work when it's opened, so they play a doorbell type of music to remind you to close it. Ours play "Home, sweet home" and one of the others plays "My heart will go on".&lt;/p&gt;
+&lt;h3&gt;Day 1 of the course&lt;/h3&gt;
+&lt;p&gt;We went for breakfast in the other apartment. Fried egg, hash brown and toast. It was quite good and a pretty normal thing to have for breakfast after yesterdays chicken fajita. When we got to the classroom we got started fairly quickly. It's only Gareth and me in the class. Our teacher had planned to do 8 modules today but as we are starting with quite basic stuff we got through them really quickly and managed to get 10 finished. Hopefully getting the extra work done today will mean we can have a bit more time on anything we struggle with later.&lt;/p&gt;
+&lt;h3&gt;Lunch&lt;/h3&gt;
+&lt;p&gt;I ordered chow mein for lunch today because it was the only thing on the menu that looked remotely recognisable. It came in a foil wrapped bag which took 10 minutes to open, only to be greeted by a really slimey, grey, onion filled sauce (I'm not a big fan of onions). I tipped it onto the plate and found a massive pile of noodles at the bottom of the bag. The noodles were good.&lt;/p&gt;
+&lt;p&gt;It's still 30 degrees and it's still incredibly humid.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Mon, 27 Jun 2011 13:29:03 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-06-27:2011/06/goa-baby/</guid><category>goa</category><category>mcpd</category></item><item><title>Caching file contents with CacheDependency</title><link>http://www.andrewaitken.com/2011/04/caching-file-contents-with-cachedependency/</link><description>&lt;p&gt;The CacheDependency will monitor a file or folder for changes. When it detects a change it will remove the associated key from the cache.&lt;/p&gt;
+&lt;p&gt;This comes in quite handy for my hangman game which stores the film titles in an xml file.&lt;/p&gt;
+&lt;p&gt;Below is how I cache the data and setup the CacheDependency. Some validation has been removed to keep it clear.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;private HangmanGameCollection ReadGameFile()
+{
+    if (HttpRuntime.Cache[&amp;quot;HangmanGame&amp;quot;] != null)
+    {
+        return (HangmanGameCollection)HttpRuntime.Cache[&amp;quot;HangmanGame&amp;quot;];
+    }
+
+    HangmanGameCollection hangmanGames;
+
+    FileInfo xmlFile = new FileInfo(Server.MapPath(&amp;quot;~/TopSecret.xml&amp;quot;));
+
+    XmlSerializer xmlSerializer = new XmlSerializer(typeof(HangmanGameCollection));
+
+    using (FileStream fileStream = xmlFile.OpenRead())
+    {
+        hangmanGames = (HangmanGameCollection)xmlSerializer.Deserialize(fileStream);
+
+        // Put it in cache with a dependency on the xml file
+        HttpRuntime.Cache.Insert(&amp;quot;HangmanGame&amp;quot;, hangmanGames, new CacheDependency(xmlFile.FullName));
+    }
+
+    return hangmanGames;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Should maybe do something about fitting in long lines of code :\&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Mon, 18 Apr 2011 21:02:20 +0100</pubDate><guid>tag:www.andrewaitken.com,2011-04-18:2011/04/caching-file-contents-with-cachedependency/</guid><category>caching</category><category>.net</category></item><item><title>First post</title><link>http://www.andrewaitken.com/2011/03/first-post/</link><description>&lt;p&gt;There is still a lot to do but I have finally gotten a working version of my blog online. I chose to write my own blog for a chance to play with asp.net MVC 3 and the Razor view engine. So far I really like the Razor view engine and think my HTML looks much cleaner when working with it.  Here is a list of what I hope to update over time:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add a search feature&lt;/li&gt;
+&lt;li&gt;Have a correctly formatted date when viewing old posts&lt;/li&gt;
+&lt;li&gt;Implement MetaWeblog API&lt;/li&gt;
+&lt;li&gt;Comments support&lt;/li&gt;
+&lt;li&gt;Contact page&lt;/li&gt;
+&lt;li&gt;Detect tweets not loading and add redundency&lt;/li&gt;
+&lt;li&gt;Add a custom error page&lt;/li&gt;
+&lt;li&gt;Make sure all the HTML and CSS is valid&lt;/li&gt;
+&lt;li&gt;Minify and combine the js files&lt;/li&gt;
+&lt;li&gt;A few styling tweaks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Maybe add a style for lists too.&lt;/p&gt;
+&lt;p&gt;I did manage to implement an RSS feed and tags which I had missed or not wanted in my original specification.&lt;/p&gt;
+&lt;p&gt;I would like to thank &lt;a href="http://glasgowtozocalo.blogspot.com/"&gt;Steven Gibson&lt;/a&gt; (&lt;a href="https://twitter.com/sgxbsxn"&gt;@glasgowtozocalo&lt;/a&gt;) for doing the design for me. It's got the clean, easy to read look I wanted and I'm really happy with it.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Andrew Aitken</dc:creator><pubDate>Sun, 20 Mar 2011 21:32:03 +0000</pubDate><guid>tag:www.andrewaitken.com,2011-03-20:2011/03/first-post/</guid><category>blog</category></item></channel></rss>

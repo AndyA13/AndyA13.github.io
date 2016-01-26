@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="I am Andrew Aitken, a .net developer living in Glasgow." />
+    
+    <title>Getting parts of a Uri</title>
+
+    <!--<link rel="stylesheet" href="http://www.andrewaitken.com/theme/css/main.css" />-->
+    <link href="/theme/css/responsive.min.css" rel="stylesheet" />
+    <link href="/theme/css/site.css" rel="stylesheet" />
+    <link href="/theme/css/pygment.css" rel="stylesheet" />
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
+
+        <link href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Andrew Aitken RSS Feed" />
+    
+    <!--[if lt IE 9 &!(IEMobile)]>
+        <script src="/theme/scripts/vendor/html5shiv.min.js"></script>
+        <script src="/theme/scripts/vendor/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="container">
+
+                <header>
+                    <h1><a href="http://www.andrewaitken.com">Andrew Aitken</a></h1>
+
+                        <h2>Blog</h2>
+
+                    <nav>
+                        <ul>
+                        </ul>
+                    </nav>
+                </header>
+            <div class="row">
+      
+      <div class="col-s-2">
+      </div>
+      <div class="col-s-8">
+
+  <article>
+
+      <div class="row">
+
+          <div class="col-s-12">
+                <h1><a href="http://www.andrewaitken.com/2015/05/getting-parts-of-request-uri/" title="Permalink to Getting parts of a Uri">Getting parts of a Uri</a></h1>
+
+<small>
+    <span class="fa fa-calendar"></span>
+    <span class="meta">Thu 21 May 2015</span>
+
+    <span class="fa fa-archive"></span>
+    <span class="meta"><a href="http://www.andrewaitken.com/category/net/">.net</a></span>
+    
+    	<span class="fa fa-tags"></span>
+    	<span class="meta">
+				<a href="http://www.andrewaitken.com/tag/c/">c#</a>
+		</span>
+    
+</small>            </div>
+
+        </div>
+        
+        <div class="row">
+
+            <div class="col-s-12 post">
+
+              <p>One thing that keeps coming up, but not enough for me to actually remember what I learnt last time, is how to get different parts of a request <a href="https://msdn.microsoft.com/en-us/library/system.uri%28v=vs.110%29.aspx" title="MSDN">Uri</a></p>
+<p>So I made a little <a href="https://gist.github.com/AndyA13/147f079cf7d69c55038d" title="gist.github.com">console app</a> that outputs the different parts from two example Uris.</p>
+<p>Behold</p>
+<div class="highlight"><pre>Uri Properties:
+
+Using          : https://www.example.com/folder/page.aspx?query=1&amp;sample=2#anchor
+AbsolutePath   : /folder/page.aspx
+AbsoluteUri    : https://www.example.com/folder/page.aspx?query=1&amp;sample=2#anchor
+Authority      : www.example.com
+DnsSafeHost    : www.example.com
+Fragment       : #anchor
+Host           : www.example.com
+HostNameType   : Dns
+IsAbsoluteUri  : True
+IsDefaultPort  : True
+IsFile         : False
+IsLoopback     : False
+IsUnc          : False
+LocalPath      : /folder/page.aspx
+OriginalString : https://www.example.com/folder/page.aspx?query=1&amp;sample=2#anchor
+PathAndQuery   : /folder/page.aspx?query=1&amp;sample=2
+Port           : 443
+Query          : ?query=1&amp;sample=2
+Scheme         : https
+Segments       : /, folder/, page.aspx
+UserEscaped    : False
+UserInfo       :
+
+Using          : http://www.example.com/folder
+AbsolutePath   : /folder
+AbsoluteUri    : http://www.example.com/folder
+Authority      : www.example.com
+DnsSafeHost    : www.example.com
+Fragment       : 
+Host           : www.example.com
+HostNameType   : Dns
+IsAbsoluteUri  : True
+IsDefaultPort  : True
+IsFile         : False
+IsLoopback     : False
+IsUnc          : False
+LocalPath      : /folder
+OriginalString : http://www.example.com/folder
+PathAndQuery   : /folder
+Port           : 80
+Query          : 
+Scheme         : http
+Segments       : /, folder
+UserEscaped    : False
+UserInfo       :
+
+Uri.GetLeftPart(UriPartial part)
+
+Using                : https://www.example.com/folder/page.aspx?query=1&amp;sample=2#anchor
+UriPartial.Authority : https://www.example.com
+UriPartial.Path      : https://www.example.com/folder/page.aspx
+UriPartial.Query     : https://www.example.com/folder/page.aspx?query=1&amp;sample=2
+UriPartial.Scheme    : https://
+
+Using                : http://www.example.com/folder
+UriPartial.Authority : http://www.example.com
+UriPartial.Path      : http://www.example.com/folder
+UriPartial.Query     : http://www.example.com/folder
+UriPartial.Scheme    : http://
+</pre></div>
+
+            </div>
+
+        </div>
+
+
+            <div class="row">
+                <div class="col-xs-12 comments">
+                    <h2>Comments !</h2>
+                    <div id="disqus_thread"></div>
+                    <script type="text/javascript">
+                        var disqus_shortname = 'andrewaitken';
+                        var disqus_identifier = '2015/05/getting-parts-of-request-uri/';
+                        var disqus_url = 'http://www.andrewaitken.com/2015/05/getting-parts-of-request-uri/';
+                        (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//andrewaitken.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                      </script>
+                      <noscript>Please enable JavaScript to view the comments.</noscript>
+                </div>
+            </div>
+            
+
+    </article>
+
+    </div>
+    <div class="col-s-2">
+    </div>
+
+</div>
+
+</div>
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-s-8">
+                        
+                        <h4>blogroll</h4>
+                    
+                        <ul class="blogroll no-bullets">
+                                <li><a href="http://cameronfletcher.com/">Cameron Fletcher</a></li>
+                                <li><a href="http://www.dougalmatthews.com/">Dougal Matthews</a></li>
+                                <li><a href="https://twitter.com/sgxbsxn">Steven Gibson</a></li>
+                        </ul>
+
+                </div>
+
+                <div class="col-s-4">
+
+                        <h4>social</h4>
+                    
+                        <ul class="social no-bullets">
+                                <li><a href="http://www.andrewaitken.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+
+                                <li><a href="https://twitter.com/AndyA13">Twitter</a></li>
+                                <li><a href="https://github.com/AndyA13">github</a></li>
+                        </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-s-12 footer-meta">
+                    <p>
+                        Powered by <a href="http://getpelican.com" target="_blank">pelican</a> and <a href="http://responsivebp.com/" target="_blank">responsive</a> |
+                        <a href="https://github.com/AndyA13/pelican-theme">Coffee &amp; Code</a> |
+                        &copy; Andrew Aitken 
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Scripts at the bottom for improved performance. -->
+    <!--[if IE 8]>     
+    <script src="/theme/scripts/vendor/jquery-1.10.2.min.js"></script>
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <script src="/theme/scripts/vendor/jquery-2.0.3.min.js"></script>
+    <!--<![endif]-->
+
+    <script src="/theme/scripts/responsive.min.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5045761-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+    var disqus_shortname = 'andrewaitken';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>
