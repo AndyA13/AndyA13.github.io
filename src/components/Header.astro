@@ -1,0 +1,61 @@
+---
+
+---
+
+<header class="site-header">
+  <a href="/" class="site-title">
+    <span class="title-text">Andrew Aitken</span>
+  </a>
+</header>
+
+<style>
+  .site-header {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 2rem var(--content-padding);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .site-title {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .title-text {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #00e060;
+    text-shadow:
+      0 0 7px #00e060,
+      0 0 20px #00e060,
+      0 0 42px #1a6a1a,
+      0 0 80px #1a6a1a;
+    transition: text-shadow 0.3s ease, color 0.3s ease;
+  }
+
+  .site-title:hover .title-text {
+    color: #33ff66;
+    text-shadow:
+      0 0 7px #33ff66,
+      0 0 20px #33ff66,
+      0 0 42px #00e060,
+      0 0 80px #00e060;
+  }
+
+  @media (max-width: 768px) {
+    .site-header {
+      padding: 1.5rem 0.5rem;
+    }
+
+    .title-text {
+      font-size: 1.5rem;
+    }
+  }
+</style>

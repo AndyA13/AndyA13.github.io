@@ -1,0 +1,53 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const tagCounts = new Map<string, number>();
+allPosts.forEach((post) => {
+  post.data.tags.forEach((tag) => {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  });
+});
+const sortedTags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<BaseLayout title="Tags">
+  <h1>Tags</h1>
+  <ul class="tag-cloud">
+    {sortedTags.map(([tag, count]) => (
+      <li>
+        <a href={`/tags/${tag}/`}>{tag} ({count})</a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  h1 {
+    margin-top: 0;
+  }
+
+  .tag-cloud {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-cloud a {
+    display: inline-block;
+    background: var(--color-accent);
+    color: white;
+    padding: 0.3em 0.75em;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .tag-cloud a:hover {
+    background: var(--color-accent-hover);
+    color: white;
+  }
+</style>

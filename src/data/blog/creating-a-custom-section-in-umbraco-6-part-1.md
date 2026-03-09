@@ -1,0 +1,56 @@
+---
+title: "Creating a Custom Section in Umbraco 6 - Part 1: The Application"
+description: "A guide to creating a custom application section in Umbraco v6.1."
+pubDate: 2013-07-16
+tags: ["umbraco"]
+---
+
+I've been doing a bit of work lately creating a custom section in an Umbraco v6.1 install. I needed a nice tree for my custom section, so after a lot of googling and digging through the Umbraco source, I managed to get it all working nicely.  I've put this guide together to hopefully make the process a little easier for myself and any other weary internet travellers who happen to stumble upon it.
+
+### The Application
+
+This is much easier now in version 6, to add a new application you just new to create a class that implements umbraco.interfaces.IApplication and has the Application attribute.
+
+```csharp
+[Application("alias", "Real Name", "images/nada.gif", 10)]
+public class MyApplication : IApplication
+{
+}
+```
+
+### IApplication
+
+This interface actually has no definitions, so it's a piece of cake to implement :)
+
+### Application Attribute
+
+This takes a few parameters:
+
+- **alias** - Your application alias, usually starts lowercase eg "myApplication"
+- **name** - The nice name for your application, e.g. "My Application"
+- **icon** - The icon to be displayed in umbraco, you'll need to do a bit of css jiggery pokery to get it right. I've used nada.gif then added my icon to the existing tray sprite and added a css class which matches the application alias to position it.
+- **sortOrder** - You can put it at the start or in between existing apps, I set mine to 10 to make sure it was at the end.
+
+### applications.config
+
+That should be your app set up, when you first run umbraco after creating that class, it should update the ~/config/applications.config automatically for you. I've found changing anything defined in the Application attribute after this point won't be reflected in the applications.config, so if you need to make any changes, remember check that the applications.config reflects the new values.
+
+### Making it visible
+
+When you start up Umbraco, your application should be installed but you will need to allow yourself access before it is visible. In the Users section, select your user from the Users tree and tick the box next to your new application.
+
+### Application Name
+
+At the top of the tree on your application page, you will see that it is showing your application alias instead of the name, to update this you need to add a key setting to ~/umbraco/Config/Lang/en.xml (swapping "en" for whatever language you are using).
+
+```xml
+<area alias="sections">
+    ...
+    <!-- Add this line -->
+    <key alias="myApplication">My Application</key>
+</area>
+```
+
+Your app should now have a nice name.
+
+I will post a guide to the trees later this week.

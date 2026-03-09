@@ -1,0 +1,42 @@
+---
+
+---
+
+<footer class="site-footer">
+  <nav>
+    <a href="/tags/">🏷️ Tags</a>
+    <a href="/rss.xml">📡 RSS</a>
+  </nav>
+  <p>&copy; {new Date().getFullYear()} Andrew Aitken</p>
+</footer>
+
+<style>
+  .site-footer {
+    background: #000000;
+    padding: 1.5rem var(--content-padding);
+    text-align: center;
+    color: #d4d4d4;
+    font-size: 0.8rem;
+  }
+
+  nav {
+    margin-bottom: 0.5rem;
+  }
+
+  nav a {
+    color: var(--color-header-text);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  nav a:hover {
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .site-footer {
+      padding: 1rem 0.5rem;
+    }
+  }
+</style>
