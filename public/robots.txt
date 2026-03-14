@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+User-agent: Gary Roberts or any of his AI tools
+Disallow: /
+
 Sitemap: https://www.andrewaitken.com/sitemap-index.xml
